@@ -1,7 +1,7 @@
 ---
-title: 'はじめての投稿'
+title: 'Astroで作ったブログにはじめての投稿'
 description: 'こんにちは'
-pubDate: 'Feb 04 2024'
+pubDate: 'Feb 03 2024'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
