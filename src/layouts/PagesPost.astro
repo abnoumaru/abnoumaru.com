@@ -11,18 +11,9 @@ type Props = CollectionEntry<'blog'>['data'] | CollectionEntry<'tech'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="ja">
 	<head>
 		<BaseHead title={title} description={description} />
-		<!-- Google tag (gtag.js) -->
-		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-1FX49E22DX"></script>
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-1FX49E22DX');
-		</script>
 		<style>
 			main {
 				width: calc(100% - 2em);
