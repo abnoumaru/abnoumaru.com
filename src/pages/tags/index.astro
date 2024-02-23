@@ -1,0 +1,30 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { createUniqueTagsList } from '../../scripts/tags'; 
+import '../../styles/tags.css';
+
+const tags = await createUniqueTagsList();
+---
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+            <p>タグ一覧</p>
+			<section>
+                {tags.map(tag => (
+                    <span><a href={`/tags/${tag}/`}> #{tag} </a></span>
+                ))}
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

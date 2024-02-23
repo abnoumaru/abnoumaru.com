@@ -1,0 +1,66 @@
+---
+import type { GetStaticPaths } from "astro";
+import { CollectionEntry, getCollection } from "astro:content";
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { isTemplateMiddleOrTemplateTail } from "typescript";
+import { createUniqueTagsList } from '../../scripts/tags';
+import '../../styles/pagelist.css';
+
+export async function getStaticPaths() {
+    const uniqueTags = await createUniqueTagsList();
+
+    return uniqueTags.map((tag) => {
+        return {
+            params: { tag },
+        };
+    });
+}
+
+const tag = Astro.params.tag;
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+            <p>#{tag} のついた記事</p>
+            <section>
+                    <ul>
+                        {
+                            posts.filter(
+                                (post) => post.data.tags.includes(tag)
+                            ).map((post) => {
+                                if (post.data.isTech) {
+                                    post.data.path = "tech";
+                                } else {
+                                    post.data.path = "blog";
+                                }
+                                return (
+                                    <li>
+                                        <a href={`/${post.data.path}/${post.slug}/`}>
+                                            <h4 class="title">{post.data.title}</h4>
+                                            <p class="date">
+                                                <FormattedDate date={post.data.pubDate} />
+                                            </p>
+                                        </a>
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
