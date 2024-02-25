@@ -56,6 +56,9 @@ nav a.active {
 .internal-links a[href="/tags"]:hover, .internal-links a[href="/tags"].active {
     color: #93caff;
 }
+.internal-links a[href="/site"]:hover, .internal-links a[href="/site"].active {
+    color: #93fff5;
+}
 .internal-links a[href="/about"]:hover, .internal-links a[href="/about"].active {
     color: #d993ff;
 }
