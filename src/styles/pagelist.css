@@ -11,7 +11,6 @@ ul li {
     width: calc(100%);
     display: flex;
     align-items:flex-end;
-    background-color: #222;
     border-radius: 12px;
     padding: 1rem;
 }
@@ -33,7 +32,10 @@ ul li a {
 }
 ul li a:hover h4,
 ul li a:hover .date {
-    color: var(--accent-orange);
+    background: linear-gradient(45deg, #a8efe3, #efa8d8, #caa8ef, #efeea8, #efc8a8, #bcefa8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 @media (max-width: 720px) {
     ul {
@@ -42,6 +44,7 @@ ul li a:hover .date {
     ul li {
         width: 100%;
         display: block;
+        background-color: #222;
         box-shadow: 0 4px 8px rgba(138, 43, 226, 0.2);
         border-radius: 10px;
         padding: 10px;

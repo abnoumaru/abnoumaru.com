@@ -6,13 +6,12 @@
 
 :root {
 	--accent: #7f00ff;
-    --accent-orange: #ff7f00;
     --accent-cyan: #00ffef;
     --background-dark-purple: #120022;
     --black: 15, 18, 25;
     --gray: 96, 115, 159;
     --gray-light: 40, 40, 60;
-    --gray-dark: 255, 255, 255;
+    --gray-dark: 170, 170, 235;
     --gray-gradient: linear-gradient(180deg, rgba(18, 0, 34, 0.85), #120022), linear-gradient(rgba(var(--gray-light), 50%), #120022);
     --box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
         0 16px 32px rgba(var(--gray), 33%);
@@ -84,7 +83,11 @@ a {
 	transition: color 0.3s ease;
 }
 a:hover {
-	color: var(--accent-orange);
+	background: linear-gradient(45deg, #a8efe3, #efa8d8, #caa8ef, #efeea8, #efc8a8, #bcefa8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 p {
 	margin-bottom: 1em;
@@ -154,4 +157,8 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+.dotted-underline {
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }
