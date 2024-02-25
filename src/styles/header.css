@@ -1,0 +1,71 @@
+header {
+    margin: 0;
+    padding: 0 1em;
+    background: #341f4b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+h2 {
+    margin: 0;
+    font-size: 1em;
+    color: #ffffff;
+}
+h2 a,
+h2 a.active {
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00ab, #ff0000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    text-decoration: none;
+    background-size: 200% 200%;
+    animation: rainbow-text-animation 5s linear infinite;
+}
+@keyframes rainbow-text-animation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav a {
+    padding: 1em 0.5em;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+}
+nav a:hover {
+    color: rgba(255, 255, 255, 1);
+    border-bottom-color: var(--accent);
+}
+nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+}
+.internal-links a[href="/"]:hover, .internal-links a[href="/"].active {
+    color: #ffa3a3;
+}
+.internal-links a[href="/blog"]:hover, .internal-links a[href="/blog"].active {
+    color: #ffcb93;
+}
+.internal-links a[href="/tech"]:hover, .internal-links a[href="/tech"].active {
+    color: #a8ff93;
+}
+.internal-links a[href="/tags"]:hover, .internal-links a[href="/tags"].active {
+    color: #93caff;
+}
+.internal-links a[href="/about"]:hover, .internal-links a[href="/about"].active {
+    color: #d993ff;
+}
+.social-links,
+.social-links a {
+    display: flex;
+    color: rgba(255, 255, 255, 0.7);
+}
+@media (max-width: 720px) {
+    .social-links {
+        display: none;
+    }
+}
