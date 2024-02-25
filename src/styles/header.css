@@ -7,18 +7,24 @@ header {
 h2 {
     margin: 0;
     font-size: 1em;
-    color: #ffffff;
+    color: #a0a0a0;
 }
 h2 a,
 h2 a.active {
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00ab, #ff0000);
+    background: linear-gradient(
+        45deg,
+        #ff0000, #ff4000, #ff7300, #ffbf00, #fffb00,
+        #bfff00, #80ff00, #48ff00, #00ff40, #00ffd5,
+        #00bfff, #0080ff, #0048ff, #0000ff, #7a00ff,
+        #bf00ff, #ff00bf, #ff007f, #ff0040, #ff0000
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     display: inline-block;
     text-decoration: none;
-    background-size: 200% 200%;
-    animation: rainbow-text-animation 5s linear infinite;
+    background-size: 400% 400%;
+    animation: rainbow-text-animation 2s linear infinite;
 }
 @keyframes rainbow-text-animation {
     0% {background-position: 0% 50%;}

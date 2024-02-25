@@ -6,7 +6,6 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
-import { isTemplateMiddleOrTemplateTail } from "typescript";
 import { createUniqueTagsList } from '../../scripts/tags';
 import '../../styles/pagelist.css';
 
@@ -34,7 +33,7 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-            <p>#{tag} のついた記事</p>
+            <h4><span class="dotted-underline">#{tag}</span> 記事一覧</h4>
             <section>
                     <ul>
                         {
