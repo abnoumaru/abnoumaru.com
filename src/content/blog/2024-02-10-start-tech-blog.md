@@ -4,10 +4,10 @@ description: 'Astroのほぼテンプレで作ったブログにTech Blogを生�
 pubDate: 'Feb 10 2024'
 heroImage: '/blog-placeholder-3.jpg'
 tags: ["Astro","お知らせ"]
-isTech: True
+isTech: true
 ---
 
-ふと久々に自分のサイトがほしいと思いこのサイトを立ち上げたが基本的には [はじめての投稿](https://abnoumaru.com/blog/2024-02-04-first-post/) に書いてある通り、とりとめのない自分向けの日記に利用したい気持ちが強い。
+ふと久々に自分のサイトがほしいと思いこのサイトを立ち上げたが基本的には [はじめての投稿](https://abnoumaru.com/blog/2024-02-03-first-post/) に書いてある通り、とりとめのない自分向けの日記に利用したい気持ちが強い。
 
 ただもしかしたら技術的なことを発信したくなるかもしれないと思い、技術ブログもほしくなった。
 

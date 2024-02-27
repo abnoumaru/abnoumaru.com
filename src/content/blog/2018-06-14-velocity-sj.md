@@ -3,12 +3,12 @@ title: "O'Reilly Velocity Conference 2018 @ San Joseに参加した"
 description: 'Astroのほぼテンプレで作ったブログにTech Blogを生やした'
 pubDate: 'Jun 20 2018'
 heroImage: '/2018-06-14-velocity-sj/IMG_8438.JPG'
-tags: ["海外出張"]
-isTech: false
+tags: ["海外出張","カンファレンス"]
+isTech: true
 ---
 
 2018/6/12 - 6/15にサンノゼで開催された [O'Reilly Velocity Conference 2018](https://conferences.oreilly.com/velocity/vl-ca) に参加してきました。
-技術的な話は会社のブログに書くのでこのブログには技術的ではない話を書いておきます。
+技術的な話は [会社のブログ](https://heartbeats.jp/hbblog/2018/06/velocity2018sj.html) に書くのでこのブログには技術的ではない話を書いておきます。
 
 サンノゼにカンファレンスで行くことになったので情報がほしいなと思った人の役に立つかも知れません。
 
