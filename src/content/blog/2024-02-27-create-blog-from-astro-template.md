@@ -22,13 +22,13 @@ isTech: true
 
 ## 紹介
 
-*色合い*
+### 色合い
 
 流行っていそうなグラデーションと紫色を採用してみた。
 特に、ヘッダー部分のページタイトルをグラデーションで変化する虹色にしてみた。
 気に入ってるけど、もしこれが下品だと思ったら、こっそり教えてほしい。
 
-*カテゴリー分けをして技術的なブログを個別ページに切り出した*
+### カテゴリー分けをして技術的なブログを個別ページに切り出した
 
 このブログは技術的なことよりは普通に日常のできごとを書くためのブログとして作成したが、せっかくなら技術的なことも書けたら嬉しいと思った。
 ただ自社のエンジニアブログは [catnose99/team-blog-hub](https://github.com/catnose99/team-blog-hub) を利用している。
@@ -42,7 +42,7 @@ categoriesにする方式も一度試してみたが、日常と技術以外に�
 https://github.com/abnoumaru/abnoumaru.com/blob/983498d6c5589df014a858551c459033b545a139/src/content/config.ts#L14
 https://github.com/abnoumaru/abnoumaru.com/blob/983498d6c5589df014a858551c459033b545a139/src/pages/tech/index.astro#L11
 
-*コメント機能*
+### コメント機能
 
 [💎giscus](https://giscus.app/ja)に助けてもらった。
 Githubを利用していない人からのコメントはどうもらったほうがいいだろうか？
