@@ -49,30 +49,35 @@ main {
 	margin: auto;
 	padding: 3em 1em;
 }
-h1,
 h2,
 h3,
 h4,
-h5,
+h5 {
+	text-decoration: underline dotted;
+	text-decoration-style: dashed;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+}
+h2 {
+	font-size: 1.2205em;
+	color: #777;
+}
+h3 {
+	font-size: 0.9765em;
+	color: #555;
+}
+h4 {
+	font-size: 0.7815em;
+	color: #333;
+}
+h5 {
+	font-size: 0.625em;
+	color: #111;
+}
 h6 {
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--gray-dark));
 	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
 }
 strong,
 b {
