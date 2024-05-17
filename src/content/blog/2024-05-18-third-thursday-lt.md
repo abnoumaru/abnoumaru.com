@@ -3,7 +3,7 @@ title: 'SLOいつ決めましょう？というタイトルで #第三木曜LT�
 description: '登壇してきました'
 pubDate: 'May 18 2024'
 heroImage: '/blog-placeholder-2.jpg'
-tags: ["Astro"]
+tags: ["登壇","SRE","SLO","ログ"]
 isTech: true
 ---
 
