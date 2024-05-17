@@ -11,6 +11,8 @@ isTech: true
 
 [SREどうでしょう？というテーマのLT会](https://metaps.connpass.com/event/313921/) で登壇してきた。
 
+資料は[こちら](https://speakerdeck.com/abnoumaru/sloitujue-memasiyou)。
+
 ## 内容について
 
 以前 [SREたちの廊下](https://findy.connpass.com/event/311323/) というイベントをオンライン視聴していた際に「SLOは最初から設定したほうがいいですか？」というコメントがあった。
