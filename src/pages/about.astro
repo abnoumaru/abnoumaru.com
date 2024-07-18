@@ -7,13 +7,63 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 const interests = ["🏃‍♂️ Ops", "🦎 SRE", "🔭 O11y"];
 
 const careers = [
-	["2012/10", "2016/03", "株式会社ハートビーツ（アルバイト）"],
-	["2016/04", "2020/04", "株式会社ハートビーツ（正社員）"],
-	["2020/05", "現在", "株式会社スリーシェイク（正社員）"],
+	[
+		"2020/05",
+		"",
+		"th",
+		"IT Infrastructure Engineer（SRE）",
+		"③ 3-shake Inc.",
+	],
+	[
+		"2016/04",
+		"2020/04",
+		"hb",
+		"Operations Engineer",
+		"🐝 HEARTBEATS Corporation",
+	],
+	[
+		"2012/10",
+		"2016/03",
+		"hb",
+		"Part-time Operations Engineer",
+		"🐝 HEARTBEATS Corporation",
+	],
 ];
+
+const educations = [
+	[
+		"2012/04",
+		"2016/03",
+		"uec",
+		"Bachelor of Engineering",
+		"⚡ The University of Electro-Communications",
+	],
+];
+
+const hobbies = ["📻", "🌸", "☔", "🍜"];
 ---
 
-<!doctype html>
+<style>
+	#uec {
+		background: linear-gradient(45deg, #17288b, #17288b);
+		-webkit-background-clip: text;
+		color: transparent;
+		display: inline-block;
+	}
+	#hb {
+		background: linear-gradient(45deg, #ff7f00, #ff7f00);
+		-webkit-background-clip: text;
+		color: transparent;
+		display: inline-block;
+	}
+	#th {
+		background: linear-gradient(45deg, #deac28, #29a87f, #2b9ac2);
+		-webkit-background-clip: text;
+		color: transparent;
+		display: inline-block;
+	}
+</style>
+
 <html lang="ja">
 	<head>
 		<BaseHead title="about - abnoumaru.com" description={SITE_DESCRIPTION} />
@@ -23,46 +73,64 @@ const careers = [
 		<main>
 			<h2>👤 ID</h2>
 			<p>🤟 abnoumaru 🤟</p>
-			<h2>👀 興味</h2>
-			<ul>
-				{interests.map((interest) => <li>{interest}</li>)}
-			</ul>
-			<h2>📝 経歴</h2>
-			{careers.map((career) => <p><b>{career[0]} - {career[1]}</b><br>{career[2]}</p>)}
-			<h2>🎤 略歴</h2>
+			<h2>👀 Interests</h2>
 			<p>
-				長野県で生まれて高校までは野球をしていました。
-				中学ではサード、高校ではセカンドを守っていました。最後の夏は三塁コーチャーでした。
-				<font color="red">送球F</font>
-				<font color="blue">プルヒッター</font>
-				<font color="blue">バント◯</font>
-				<font color="red">エラー</font> みたいな能力でした。 現在は年間に5試合程度、球場に足を運んで観戦します。得点が入ると傘をふるチームを応援しています。
+				{
+					interests.map((interest, index) => (
+						<span>
+							{interest}
+							{index < interests.length - 1 && " / "}
+						</span>
+					))
+				}
 			</p>
+			<h2>📝 Career</h2>
+			{
+				careers.map((career) => (
+					<p>
+						<div>
+							{career[0]} - {career[1]}
+						</div>
+						<div>
+							<span id={career[2]}>
+								{career[3]} <br />
+								--- {career[4]}
+							</span>
+						</div>
+					</p>
+				))
+			}
 
-			<p>
-				1年の浪人を経て、大学への進学を機に東京に出てきました。
-				大学1年生の10月にアルバイトでサーバの構築から運用まで24時間365日有人監視する会社で働き始めました。
-				この会社でインフラエンジニアとしてのキャリアをスタートしました。
-				また軽音系のサークルでギターを弾いたり、ボーカルをしたり、映像を編集したりしていました。
-				大学卒業後も、アルバイトをしていた会社で引き続きインフラエンジニアとして働きました。
-			</p>
+			<h2>🎓 Educations</h2>
+			{
+				educations.map((education) => (
+					<p>
+						<div>
+							{education[0]} - {education[1]}
+						</div>
+						<div>
+							<span id={education[2]}>
+								{education[3]} <br />
+								--- {education[4]}
+							</span>
+						</div>
+					</p>
+				))
+			}
 
+			<h2>🎴 Hobbies</h2>
 			<p>
-				社会人になり4年ほど経った頃、現在も働いている会社に入社しました。
-				SREの考え方を利用した技術支援を行っています。
-				担当業務は金融系のお客様中心の対応で、自社ではグループリーダーも担当しています。
+				{
+					hobbies.map((hobby, index) => (
+						<span>
+							{hobby}
+							{index < hobbies.length - 1 && " / "}
+						</span>
+					))
+				}
 			</p>
-
-			<p>
-				最近では趣味といった趣味はなく、休みの日も何かしらのキャッチアップをしてることが多いです。
-				お笑いが好きなこともあり、好きな芸人さんのラジオだけは聴き続けています。
-				ラーメン屋や居酒屋を開拓することも好きですが、お酒は控えめにすることが最近の目標です。
-			</p>
-			<h2>📧 連絡先</h2>
-			<p>
-				お仕事の依頼やこのサイトに関するお問い合わせは me [at] abnoumaru [dot]
-				com までどうぞ。SNSは苦手なので積極的にやっていません。
-			</p>
+			<h2>📧 Contact Address</h2>
+			<p>me [at] abnoumaru [dot] com</p>
 		</main>
 		<Footer />
 	</body>
