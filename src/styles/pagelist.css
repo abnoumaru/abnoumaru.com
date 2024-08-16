@@ -32,10 +32,7 @@ ul li a {
 }
 ul li a:hover .title,
 ul li a:hover .date {
-    background: linear-gradient(45deg, #a8efe3, #efa8d8, #caa8ef, #efeea8, #efc8a8, #bcefa8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #4682b4;
 }
 @media (max-width: 720px) {
     ul {
