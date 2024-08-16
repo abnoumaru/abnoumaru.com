@@ -21,11 +21,19 @@ import "../styles/header.css";
 
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
-		document.addEventListener("click", function () {
-				var menu = document.getElementById("menu");
+		var menuToggle = document.getElementById("menu-toggle");
+		var menu = document.getElementById("menu");
+		var content = document.querySelector(".content");
+
+		if (menuToggle) {
+			menuToggle.addEventListener("click", function () {
 				if (menu) {
 					menu.classList.toggle("open");
+					if (content) {
+						content.classList.toggle("slide-down");
+					}
 				}
 			});
+		}
 	});
 </script>
