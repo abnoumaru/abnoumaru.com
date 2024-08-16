@@ -68,13 +68,48 @@ nav a.active {
 .internal-links a[href="/about"]:hover, .internal-links a[href="/about"].active {
     color: #d993ff;
 }
-.social-links,
-.social-links a {
-    display: flex;
-    color: rgba(255, 255, 255, 0.7);
+
+.menu-toggle {
+    display: none; /* 初期状態では☰を非表示にする */
 }
-@media (max-width: 720px) {
-    .social-links {
-        display: none;
-    }
+
+@media (max-width: 768px) {
+    .internal-links {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            /* ボタンを連続して表示 */
+            width: 100%;
+            /* 幅を全画面に */
+            position: absolute;
+            top: 60px;
+            /* ヘッダーの下に表示 */
+            left: 0;
+            background-color: #444;
+        }
+
+        .menu-toggle {
+            display: block;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .internal-links.open {
+            display: flex;
+        }
+
+        .internal-links a {
+            display: block;
+            padding: 15px;
+            text-align: center;
+            background-color: #555;
+            color: #fff;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+
+        .internal-links a:hover {
+            background-color: #666;
+        }
 }
