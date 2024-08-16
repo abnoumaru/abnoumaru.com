@@ -85,7 +85,8 @@ nav a.active {
             top: 60px;
             /* ヘッダーの下に表示 */
             left: 0;
-            background-color: #444;
+            background-color: rgba(68, 68, 68, 0.8);
+            backdrop-filter: blur(5px);
         }
 
         .menu-toggle {
@@ -103,7 +104,7 @@ nav a.active {
             display: block;
             padding: 15px;
             text-align: center;
-            background-color: #555;
+            background-color: transparent;
             color: #fff;
             border-bottom: 1px solid #666;
             width: 100%;
