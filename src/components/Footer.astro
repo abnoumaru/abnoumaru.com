@@ -3,6 +3,12 @@ const today = new Date();
 ---
 
 <footer>
+	<div class="social-links">
+		<a href="https://github.com/abnoumaru" target="_blank"> GH </a>
+		<a href="https://x.com/abnoumaru" target="_blank"> X </a>
+		<a href="https://keybase.io/abnoumaru" target="_blank"> K </a>
+		<a href="https://speakerdeck.com/abnoumaru" target="_blank"> SD </a>
+	</div>
 	&copy; {today.getFullYear()} abnoumaru. Powerd by <a href="https://astro.build" target="_blank">Astro</a>.
 </footer>
 <style>
@@ -11,5 +17,18 @@ const today = new Date();
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+	}
+	.social-links a {
+		text-decoration: none;
+		color: rgb(var(--gray));
+	}
+	.social-links a:hover {
+		color: rgb(var(--gray-dark));
 	}
 </style>
