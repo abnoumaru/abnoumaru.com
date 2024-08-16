@@ -7,7 +7,7 @@ import "../styles/header.css";
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
+		<div class="internal-links" id="menu">
 			<HeaderLink href="/">home</HeaderLink>
 			<HeaderLink href="/blog">blog</HeaderLink>
 			<HeaderLink href="/tech">tech</HeaderLink>
@@ -15,5 +15,19 @@ import "../styles/header.css";
 			<HeaderLink href="/site">site</HeaderLink>
 			<HeaderLink href="/about">about</HeaderLink>
 		</div>
+		<div class="menu-toggle" id="menu-toggle">☰</div>
 	</nav>
 </header>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		document
+			.getElementById("menu-toggle")
+			.addEventListener("click", function () {
+				var menu = document.getElementById("menu");
+				if (menu) {
+					menu.classList.toggle("open");
+				}
+			});
+	});
+</script>
