@@ -6,7 +6,6 @@
 
 :root {
 	--accent-blue: #4682b4;
-	--accent-yellow: #e0c700;
 	--accent-pink: #e57373;
 	--background-dark-gray: #404040;
 	--gray-dark: 96, 96, 96;
@@ -57,11 +56,11 @@ h2 {
 }
 h3 {
 	font-size: 0.9765em;
-	color: var(--accent-yellow);
+	color: var(--accent-blue);
 }
 h4 {
 	font-size: 0.7815em;
-	color: var(--accent-pink);
+	color: var(--accent-blue);
 }
 h5 {
 	font-size: 0.625em;
