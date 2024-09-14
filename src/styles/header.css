@@ -56,9 +56,9 @@ nav a.active {
 .internal-links a[href="/blog"]:hover, .internal-links a[href="/blog"].active {
     color: #ffcb93;
 }
-.internal-links a[href="/tech"]:hover, .internal-links a[href="/tech"].active {
+/* .internal-links a[href="/tech"]:hover, .internal-links a[href="/tech"].active {
     color: #a8ff93;
-}
+} */
 .internal-links a[href="/tags"]:hover, .internal-links a[href="/tags"].active {
     color: #93caff;
 }
