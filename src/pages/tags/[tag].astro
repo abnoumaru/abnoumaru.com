@@ -33,21 +33,16 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-            <h4><span class="dotted-underline">#{tag}</span> 記事一覧</h4>
+            <h4><span>#{tag}</span> 記事一覧</h4>
             <section>
                     <ul>
                         {
                             posts.filter(
                                 (post) => post.data.tags.includes(tag)
                             ).map((post) => {
-                                if (post.data.isTech) {
-                                    post.data.path = "tech";
-                                } else {
-                                    post.data.path = "blog";
-                                }
                                 return (
                                     <li>
-                                        <a href={`/${post.data.path}/${post.slug}/`}>
+                                        <a href={`/blog/${post.slug}/`}>
                                             <h4 class="title">{post.data.title}</h4>
                                             <p class="date">
                                                 <FormattedDate date={post.data.pubDate} />

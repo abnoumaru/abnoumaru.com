@@ -1,4 +1,30 @@
 ---
-import AboutContent from "../components/AboutContent.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
-<AboutContent />
+
+<style>
+.icon-image {
+  width: 300px;  /* アイコンの幅を指定 */
+  height: 300px; /* アイコンの高さを指定 */
+  object-fit: cover; /* アイコンが枠に合わせて適切にトリミングされる */
+}
+</style>
+
+<html lang="ja">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main style="text-align:center">
+      <p>🍅 . 🍜 . 🌮 . 🐑 . 🍝 . 🥙</p>
+      <img src="/abnoumaru.png" alt="abnoumaru icon" class="icon-image">
+      <p>🍅 . 🍜 . 🌮 . 🐑 . 🍝 . 🥙</p>
+    </main>
+    <Footer />
+  </body>
+</html>
+

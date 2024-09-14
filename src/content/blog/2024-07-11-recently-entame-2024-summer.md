@@ -29,7 +29,7 @@ isTech: false
 さらばは本当にムラがなくて毎度めちゃくちゃ面白くてビビる。  
 今回も最高だった。
 
-これ観てから [この発表](https://abnoumaru.com/tech/2024-05-18-third-thursday-lt/) でハードだった。
+これ観てから [この発表](https://abnoumaru.com/blog/2024-05-18-third-thursday-lt/) でハードだった。
 
 ### 劇場総集編ぼっち・ざ・ろっく！Re:
 
