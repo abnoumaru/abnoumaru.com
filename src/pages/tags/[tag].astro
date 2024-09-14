@@ -40,14 +40,9 @@ const posts = (await getCollection('blog')).sort(
                             posts.filter(
                                 (post) => post.data.tags.includes(tag)
                             ).map((post) => {
-                                if (post.data.isTech) {
-                                    post.data.path = "tech";
-                                } else {
-                                    post.data.path = "blog";
-                                }
                                 return (
                                     <li>
-                                        <a href={`/${post.data.path}/${post.slug}/`}>
+                                        <a href={`/blog/${post.slug}/`}>
                                             <h4 class="title">{post.data.title}</h4>
                                             <p class="date">
                                                 <FormattedDate date={post.data.pubDate} />
