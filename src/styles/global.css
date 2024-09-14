@@ -44,12 +44,7 @@ main {
 h2,
 h3,
 h4,
-h5 {
-	text-decoration: underline dotted;
-	text-decoration-style: dashed;
-	text-decoration-thickness: 2px;
-	text-underline-offset: 4px;
-}
+h5
 h2 {
 	font-size: 1.2205em;
 	color: var(--accent-blue);
@@ -152,8 +147,4 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
-}
-.dotted-underline {
-    text-decoration: underline;
-    text-decoration-style: dotted;
 }
