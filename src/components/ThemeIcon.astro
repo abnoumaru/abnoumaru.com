@@ -36,7 +36,7 @@
 <script>
   const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
+      return localStorage.getItem('theme') || 'light'; // nullの場合は light を返す
     }
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
@@ -50,7 +50,8 @@
     document.documentElement.classList.add('dark');
   }
 
-  window.localStorage.setItem('theme', theme);
+  // themeがnull似なる可能性をなくす
+  window.localStorage.setItem('theme', theme || 'light');
 
   const handleToggleClick = () => {
     const element = document.documentElement;
@@ -60,5 +61,10 @@
     localStorage.setItem("theme", isDark ? "dark" : "light");
   }
 
-  document.getElementById("theme-toggle").addEventListener("click", handleToggleClick);
+  const toggleButton = document.getElementById("theme-toggle");
+
+  // toggleButtonがnullでないことを確認
+  if (toggleButton) {
+    toggleButton.addEventListener("click", handleToggleClick);
+  }
 </script>
