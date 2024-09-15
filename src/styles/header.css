@@ -81,7 +81,7 @@ nav a.active {
         /* ボタンを連続して表示 */
         width: 100%;
         /* 幅を全画面に */
-        position: absolute;
+        position: fixed;
         top: 60px;
         /* ヘッダーの下に表示 */
         left: 0;
