@@ -25,15 +25,11 @@ import "../styles/header.css";
 	document.addEventListener("DOMContentLoaded", function () {
 		var menuToggle = document.getElementById("menu-toggle");
 		var menu = document.getElementById("menu");
-		var content = document.querySelector(".content");
 
 		if (menuToggle) {
 			menuToggle.addEventListener("click", function () {
 				if (menu) {
 					menu.classList.toggle("open");
-					if (content) {
-						content.classList.toggle("slide-down");
-					}
 				}
 			});
 		}
