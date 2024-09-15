@@ -18,11 +18,11 @@ const tags = await createUniqueTagsList();
 	<body>
 		<Header />
 		<main>
-            <p>🏷 タグ一覧</p>
+			<p>🏷 タグ一覧</p>
 			<section>
-                {tags.map(tag => (
-                    <span><a href={`/tags/${tag}/`}> #{tag} </a></span>
-                ))}
+				{tags.map(tag => (
+						<span><a href={`/tags/${tag}/`}> #{tag} </a></span>
+				))}
 			</section>
 		</main>
 		<Footer />

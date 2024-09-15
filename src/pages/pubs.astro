@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import '../styles/pagelist.css';
 
 const talks = [
   [
@@ -69,47 +70,46 @@ const writings = [
 
 ---
 
-<style>
-  #info {
-    font-size: 15px;
-    color: #6e6e6e;    
-  }
-</style>
-
 <html lang="ja">
   <head>
     <BaseHead title="pubs - abnoumaru.com" description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
+    <section>
+
+    </section>
     <main>
-      <h2>🗣 登壇</h2>
-      {
-        talks.map(([date, title, event, link]) => (
-          <p>
-            <div id="title">
-              <a href={link}>{title}</a>
-            </div>
-            <div id="info">
-              {date} ＠ {event}
-            </div>
-          </p>
-        ))
-      }
-    </br>
-  <h2>📚 執筆</h2>
-    {
-      writings.map(([date, title, link]) => (
-        <p>
-          <div id="title">
-            <a href={link}>{title}</a>
-          </div>
-          <div id="info">
-            {date}
-          </div>
-        </p>
-      ))
-    }
+      <section>
+        <p>🗣 登壇</p>
+        <ul>
+        {
+          talks.map(([date, title, event, link]) => (
+            <li>
+              <a href={link}>
+                <p class="title">{title}</p>
+                <p class="date">{date} ＠ {event}</p>
+              </a>
+            </li>
+          ))
+        }
+        </ul>
+      </section>
+      <section>
+        <p>📚 執筆</p>
+        <ul>
+          {
+            writings.map(([date, title, link]) => (
+              <li>
+                <a href={link}>
+                  <p class="title">{title}</p>
+                  <p class="date">{date}</p>
+                </a>
+              </li>
+            ))
+          }
+          </ul>
+      </section>
     </main>
     <Footer />
   </body>
