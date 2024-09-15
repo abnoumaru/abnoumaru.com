@@ -69,9 +69,6 @@ nav a.active {
     color: #d993ff;
 }
 
-.theme-toggle {
-}
-
 .menu-toggle {
     display: none; /* 初期状態では☰を非表示にする */
 }
@@ -84,7 +81,7 @@ nav a.active {
         /* ボタンを連続して表示 */
         width: 100%;
         /* 幅を全画面に */
-        position: absolute;
+        position: fixed;
         top: 60px;
         /* ヘッダーの下に表示 */
         left: 0;
@@ -115,9 +112,5 @@ nav a.active {
 
     .internal-links a:hover {
         background-color: #666;
-    }
-
-    #theme-toggle {
-        display: none; /* TODO: menuを開くとボタンの位置が移動する不具合があるためモバイル端末では非表示 */
     }
 }
