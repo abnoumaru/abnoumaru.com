@@ -69,48 +69,55 @@ nav a.active {
     color: #d993ff;
 }
 
+.theme-toggle {
+}
+
 .menu-toggle {
     display: none; /* 初期状態では☰を非表示にする */
 }
 
 @media (max-width: 768px) {
     .internal-links {
-            display: none;
-            flex-direction: column;
-            gap: 0;
-            /* ボタンを連続して表示 */
-            width: 100%;
-            /* 幅を全画面に */
-            position: absolute;
-            top: 60px;
-            /* ヘッダーの下に表示 */
-            left: 0;
-            background-color: rgba(68, 68, 68, 0.8);
-            backdrop-filter: blur(5px);
-        }
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        /* ボタンを連続して表示 */
+        width: 100%;
+        /* 幅を全画面に */
+        position: absolute;
+        top: 60px;
+        /* ヘッダーの下に表示 */
+        left: 0;
+        background-color: rgba(68, 68, 68, 0.8);
+        backdrop-filter: blur(5px);
+    }
 
-        .menu-toggle {
-            display: block;
-            cursor: pointer;
-            font-size: 24px;
-            color: #fff;
-        }
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #fff;
+    }
 
-        .internal-links.open {
-            display: flex;
-        }
+    .internal-links.open {
+        display: flex;
+    }
 
-        .internal-links a {
-            display: block;
-            padding: 15px;
-            text-align: center;
-            background-color: transparent;
-            color: #fff;
-            border-bottom: 1px solid #666;
-            width: 100%;
-        }
+    .internal-links a {
+        display: block;
+        padding: 15px;
+        text-align: center;
+        background-color: transparent;
+        color: #fff;
+        border-bottom: 1px solid #666;
+        width: 100%;
+    }
 
-        .internal-links a:hover {
-            background-color: #666;
-        }
+    .internal-links a:hover {
+        background-color: #666;
+    }
+
+    #theme-toggle {
+        display: none; /* TODO: menuを開くとボタンの位置が移動する不具合があるためモバイル端末では非表示 */
+    }
 }

@@ -26,9 +26,16 @@ ul li a {
     margin: 0;
     color: rgb(var(--gray-dark));
 }
+.dark .title {
+    color: #aaa;
+}
 .date {
     margin: 0;
-    color: #aaa;
+    font-size: 20px;
+    color: #6e6e6e;
+}
+.dark .date {
+    color: var(--gray-dark);
 }
 ul li a:hover .title,
 ul li a:hover .date {
@@ -41,9 +48,14 @@ ul li a:hover .date {
     ul li {
         width: 100%;
         display: block;
-        background-color: #222;
-        box-shadow: 0 4px 8px rgba(138, 43, 226, 0.2);
+        background-color: #eee;
         border-radius: 10px;
         padding: 10px;
     }
+    .dark ul li {
+        background-color: #222;
+    }
+}
+.unique-tag {
+    color: #4682b4
 }
