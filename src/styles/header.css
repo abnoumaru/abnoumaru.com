@@ -116,4 +116,8 @@ nav a.active {
     .internal-links a:hover {
         background-color: #666;
     }
+
+    #theme-toggle {
+        display: none; /* TODO: menuを開くとボタンの位置が移動する不具合があるためモバイル端末では非表示 */
+    }
 }
