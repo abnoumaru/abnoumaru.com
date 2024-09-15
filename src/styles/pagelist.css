@@ -31,7 +31,8 @@ ul li a {
 }
 .date {
     margin: 0;
-    color: #aaa;
+    font-size: 20px;
+    color: #6e6e6e;
 }
 .dark .date {
     color: var(--gray-dark);
