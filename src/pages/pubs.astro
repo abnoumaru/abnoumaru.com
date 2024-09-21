@@ -3,71 +3,70 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_DESCRIPTION } from "../consts";
-import '../styles/pagelist.css';
+import "../styles/pagelist.css";
 
 const talks = [
   [
     "2024/08/23",
     "LLMのO11yに触れる",
     "3-shake SRE Teck Talk #10",
-    "https://speakerdeck.com/abnoumaru/3-shake-sre-tech-talk-number-10-llmnoo11ynihong-reru"
+    "https://speakerdeck.com/abnoumaru/3-shake-sre-tech-talk-number-10-llmnoo11ynihong-reru",
   ],
   [
     "2024/06/28",
     "マイクロサービスの現場からプラットフォームエンジニアリングの可能性を探る！（前半）",
     "開発生産性カンファレンス2024",
-    "https://speakerdeck.com/abnoumaru/maikurosabisunoxian-chang-karapuratutohuomuenziniaringunoke-neng-xing-wotan-ru"
+    "https://speakerdeck.com/abnoumaru/maikurosabisunoxian-chang-karapuratutohuomuenziniaringunoke-neng-xing-wotan-ru",
   ],
   [
     "2024/05/16",
     "SLOいつ決めましょう？",
     "第3木曜LT会",
-    "https://speakerdeck.com/abnoumaru/sloitujue-memasiyou"
+    "https://speakerdeck.com/abnoumaru/sloitujue-memasiyou",
   ],
   [
     "2022/11/19",
     "あなたらしくSRE",
     "Rakuten Technology Conference 2022（福岡サテライト会場）",
-    "https://speakerdeck.com/abnoumaru/anatarasikusre-gong-kai-yong"
+    "https://speakerdeck.com/abnoumaru/anatarasikusre-gong-kai-yong",
   ],
   [
     "2018/01/17",
     "MSPにおけるトイル削減",
     "SRE Lounge 20180117",
-    "https://speakerdeck.com/abnoumaru/sre-lounge-20180117"
+    "https://speakerdeck.com/abnoumaru/sre-lounge-20180117",
   ],
   [
     "2016/06/28",
     "IDCFクラウドを使って、どこまでチューニングできるか試してみた",
     "IDCFクラウドmeetup vol.4！～LT祭り！～",
-    "https://speakerdeck.com/abnoumaru/idcfkuraudowoshi-tutedokomadetiyuningudekirukashi-sitemita"
+    "https://speakerdeck.com/abnoumaru/idcfkuraudowoshi-tutedokomadetiyuningudekirukashi-sitemita",
   ],
   [
     "2015/05/30",
     "AWS認定ソリューションアーキテクトを受けた話",
     "第2回 JAWS-UG 京王線支部",
-    "https://speakerdeck.com/abnoumaru/awsren-ding-soriyusiyonakitekutowoshou-ketahua"
-  ]
-]
+    "https://speakerdeck.com/abnoumaru/awsren-ding-soriyusiyonakitekutowoshou-ketahua",
+  ],
+];
 
 const writings = [
-[
+  [
     "2022/03/04",
     "Linuxブートキャンプ サーバ操作／OSのしくみ／UNIXネットワーク ──10年先も使える基礎を身につける！",
-    "https://gihyo.jp/book/2022/978-4-297-12683-4"
+    "https://gihyo.jp/book/2022/978-4-297-12683-4",
   ],
   [
     "2018/06/18",
     "Software Design 2018年7月号 第2特集 プロはこうして便利に使う！エピソードで覚えるUnixコマンド20 EPISODE 5 サーバ管理のスペシャリストのお勧め rsync部分",
-    "https://gihyo.jp/magazine/SD/archive/2018/201807"
+    "https://gihyo.jp/magazine/SD/archive/2018/201807",
   ],
   [
     "2018/02/17",
     "Software Design 2018年3月号 第2特集 Dockerをさらに便利に使いたい！Kubernetes入門 第3章 実践！Kubernetes kubesprayを使ってローカルで試してみよう",
-    "https://gihyo.jp/magazine/SD/archive/2018/201803"
-  ]
-]
-
+    "https://gihyo.jp/magazine/SD/archive/2018/201803",
+  ],
+];
 ---
 
 <html lang="ja">
@@ -76,23 +75,22 @@ const writings = [
   </head>
   <body>
     <Header />
-    <section>
-
-    </section>
     <main>
       <section>
         <p>🗣 登壇</p>
         <ul>
-        {
-          talks.map(([date, title, event, link]) => (
-            <li>
-              <a href={link}>
-                <p class="title">{title}</p>
-                <p class="date">{date} ＠ {event}</p>
-              </a>
-            </li>
-          ))
-        }
+          {
+            talks.map(([date, title, event, link]) => (
+              <li>
+                <a href={link}>
+                  <p class="title">{title}</p>
+                  <p class="date">
+                    {date} ＠ {event}
+                  </p>
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </section>
       <section>
@@ -108,7 +106,7 @@ const writings = [
               </li>
             ))
           }
-          </ul>
+        </ul>
       </section>
     </main>
     <Footer />

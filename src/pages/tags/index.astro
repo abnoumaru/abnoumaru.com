@@ -1,28 +1,33 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_DESCRIPTION } from '../../consts';
-import { createUniqueTagsList } from '../../scripts/tags'; 
-import '../../styles/tags.css';
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_DESCRIPTION } from "../../consts";
+import { createUniqueTagsList } from "../../scripts/tags";
+import "../../styles/tags.css";
 
 const tags = await createUniqueTagsList();
 ---
+
 <!doctype html>
 <html lang="ja">
-	<head>
-		<BaseHead title="tags - abnoumaru.com" description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<p>🏷 タグ一覧</p>
-			<section>
-				{tags.map(tag => (
-						<span><a href={`/tags/${tag}/`}> #{tag} </a></span>
-				))}
-			</section>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title="tags - abnoumaru.com" description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <p>🏷 タグ一覧</p>
+      <section>
+        {
+          tags.map((tag) => (
+            <span>
+              <a href={`/tags/${tag}/`}> #{tag} </a>
+            </span>
+          ))
+        }
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

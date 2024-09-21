@@ -1,37 +1,37 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import ThemeIcon from './ThemeIcon.astro';
+import ThemeIcon from "./ThemeIcon.astro";
 import { SITE_TITLE } from "../consts";
 import "../styles/header.css";
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links" id="menu">
-			<HeaderLink href="/">home</HeaderLink>
-			<HeaderLink href="/blog">blog</HeaderLink>
-			<HeaderLink href="/tags">tags</HeaderLink>
-			<HeaderLink href="/pubs">pubs</HeaderLink>
-			<HeaderLink href="/site">site</HeaderLink>
-			<HeaderLink href="/about">about</HeaderLink>
-		</div>
-		<ThemeIcon />
-		<div class="menu-toggle" id="menu-toggle">☰</div>
-	</nav>
+  <nav>
+    <h2><a href="/">{SITE_TITLE}</a></h2>
+    <div class="internal-links" id="menu">
+      <HeaderLink href="/">home</HeaderLink>
+      <HeaderLink href="/blog">blog</HeaderLink>
+      <HeaderLink href="/tags">tags</HeaderLink>
+      <HeaderLink href="/pubs">pubs</HeaderLink>
+      <HeaderLink href="/site">site</HeaderLink>
+      <HeaderLink href="/about">about</HeaderLink>
+    </div>
+    <ThemeIcon />
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  </nav>
 </header>
 
 <script>
-	document.addEventListener("DOMContentLoaded", function () {
-		var menuToggle = document.getElementById("menu-toggle");
-		var menu = document.getElementById("menu");
+  document.addEventListener("DOMContentLoaded", function () {
+    var menuToggle = document.getElementById("menu-toggle");
+    var menu = document.getElementById("menu");
 
-		if (menuToggle) {
-			menuToggle.addEventListener("click", function () {
-				if (menu) {
-					menu.classList.toggle("open");
-				}
-			});
-		}
-	});
+    if (menuToggle) {
+      menuToggle.addEventListener("click", function () {
+        if (menu) {
+          menu.classList.toggle("open");
+        }
+      });
+    }
+  });
 </script>
