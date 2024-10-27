@@ -13,12 +13,12 @@
     "prettier": "prettier --write 'src/**/*.{ts,astro}'"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/mdx": "^2.1.1",
-    "@astrojs/partytown": "^2.0.4",
-    "@astrojs/rss": "^4.0.4",
-    "@astrojs/sitemap": "^3.0.5",
-    "astro": "^4.3.2",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^3.1.8",
+    "@astrojs/partytown": "^2.1.2",
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^4.16.7",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
