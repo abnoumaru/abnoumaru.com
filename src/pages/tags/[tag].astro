@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION } from "../../consts";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { createUniqueTagsList } from "../../scripts/tags";
@@ -19,7 +17,6 @@ export async function getStaticPaths() {
 }
 
 const tag = Astro.params.tag;
-
 const page_title = "#" + tag + " 記事一覧";
 
 const posts = (await getCollection("blog")).sort(
@@ -27,36 +24,24 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<!doctype html>
-<html lang="ja">
-  <head>
-    <BaseHead title={page_title} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <p><span class="unique-tag">#{tag}</span> 記事一覧</p>
-        <ul>
-          {
-            posts
-              .filter((post) => post.data.tags.includes(tag))
-              .map((post) => {
-                return (
-                  <li>
-                    <a href={`/blog/${post.slug}/`}>
-                      <p class="title">{post.data.title}</p>
-                      <p class="date">
-                        <FormattedDate date={post.data.pubDate} />
-                      </p>
-                    </a>
-                  </li>
-                );
-              })
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title={page_title} description={SITE_DESCRIPTION}>
+  <section class="post-list">
+    <h2><span class="unique-tag">#{tag}</span> 記事一覧</h2>
+    <ul>
+      {
+        posts
+          .filter((post) => post.data.tags.includes(tag))
+          .map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}/`}>
+                <p class="title">{post.data.title}</p>
+                <p class="date">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

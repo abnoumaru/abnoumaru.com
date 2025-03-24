@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { GA_ID } from "../consts";
 
 interface Props {
   title: string;
@@ -10,7 +11,6 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 ---
 
@@ -61,17 +61,16 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) - パーティータウンで最適化済み -->
 <script
   type="text/partytown"
   async
-  src="https://www.googletagmanager.com/gtag/js?id=G-1FX49E22DX"></script>
-<script type="text/partytown">
+  src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+<script type="text/partytown" define:vars={{ GA_ID }}>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
-
-  gtag("config", "G-1FX49E22DX");
+  gtag("config", GA_ID);
 </script>
