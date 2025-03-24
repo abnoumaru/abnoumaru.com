@@ -1,7 +1,5 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
@@ -10,34 +8,81 @@ import "../../styles/pagelist.css";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// タグの一覧を取得
+const tags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
 ---
 
-<!doctype html>
-<html lang="ja">
-  <head>
-    <BaseHead title="blog - abnoumaru.com" description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <p>📙 記事一覧</p>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.slug}/`}>
-                  <p class="title">{post.data.title}</p>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title="blog - abnoumaru.com" description={SITE_DESCRIPTION}>
+  <section class="post-list">
+    <h2>📙 記事一覧</h2>
+    
+    <div class="tags-container">
+      <p>タグで絞り込み:</p>
+      <div class="tags">
+        {tags.map(tag => (
+          <a href={`/tags/${tag}`} class="tag">#{tag}</a>
+        ))}
+      </div>
+    </div>
+    
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}/`}>
+              <p class="title">{post.data.title}</p>
+              <p class="date">
+                <FormattedDate date={post.data.pubDate} />
+                {post.data.tags && (
+                  <span class="post-tags">
+                    {post.data.tags.map((tag: string) => (
+                      <span class="post-tag">#{tag}</span>
+                    ))}
+                  </span>
+                )}
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .tags-container {
+    margin: 2rem 0;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    background-color: rgba(var(--gray-light), 0.3);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tag:hover {
+    background-color: var(--accent-blue);
+    color: white;
+  }
+  
+  .post-tags {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+  }
+  
+  .post-tag {
+    font-size: 0.75rem;
+    color: var(--accent-blue);
+  }
+</style>

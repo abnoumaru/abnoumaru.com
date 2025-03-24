@@ -14,5 +14,16 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
-  ]
+  ],
+  // パフォーマンス最適化の設定
+  build: {
+    // 画像最適化のパス（文字列を指定）
+    assets: 'assets',
+    // チャンキングの改善
+    inlineStylesheets: 'auto',
+  },
+  // コードの圧縮
+  compressHTML: true,
+  // プリロードの機能を強化
+  prefetch: true,
 });
