@@ -1,29 +1,13 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import "../styles/home.css";
 ---
 
-<style>
-  .icon-image {
-    width: 350px; /* アイコンの幅を指定 */
-    height: 350px; /* アイコンの高さを指定 */
-    object-fit: cover; /* アイコンが枠に合わせて適切にトリミングされる */
-  }
-</style>
-
-<html lang="ja">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main style="text-align:center">
-      <p>Welcome to abnoumaru's website!</p>
-      <img src="/abnoumaru.webp" alt="abnoumaru icon" class="icon-image" />
-      <p>I'm an Reliability engineer based in 🇯🇵</p>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="home-content">
+    <p>Welcome to abnoumaru's website!</p>
+    <img src="/abnoumaru.webp" alt="abnoumaru icon" class="icon-image" width="350" height="350" loading="eager" />
+    <p>I'm an Reliability engineer based in 🇯🇵</p>
+  </div>
+</BaseLayout>

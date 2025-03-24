@@ -1,17 +1,19 @@
 ---
+import { TWITTER_HANDLE, GITHUB_HANDLE } from "../consts";
+
 const today = new Date();
 ---
 
 <footer>
   <div class="social-links">
-    <a href="https://github.com/abnoumaru" target="_blank">
+    <a href={`https://github.com/${GITHUB_HANDLE}`} target="_blank" rel="noopener noreferrer">
       <span class="sr-only">Go to abnoumaru's GitHub repo</span>
       <svg
         viewBox="0 0 16 16"
         aria-hidden="true"
         width="24"
         height="24"
-        astro-icon="social/github"
+        class="icon"
       >
         <path
           fill="currentColor"
@@ -91,29 +93,55 @@ const today = new Date();
       </svg>
     </a>
   </div>
-  &copy; {today.getFullYear()} abnoumaru. Developed with <a
-    href="https://astro.build"
-    target="_blank">Astro</a
-  >.
+  <div class="copyright">
+    &copy; {today.getFullYear()} abnoumaru. All rights reserved.
+  </div>
 </footer>
+
 <style>
   footer {
     padding: 2em 1em 6em 1em;
-    background: linear-gradient(var(--gray-gradient)) no-repeat;
-    color: rgb(var(--gray));
+    background: linear-gradient(var(--gray-gradient));
+    color: rgb(var(--gray-dark));
     text-align: center;
   }
+  
   .social-links {
     display: flex;
     justify-content: center;
     gap: 1em;
     margin-top: 1em;
   }
+  
   .social-links a {
     text-decoration: none;
-    color: rgb(var(--gray));
-  }
-  .social-links a:hover {
     color: rgb(var(--gray-dark));
+  }
+  
+  .social-links a:hover {
+    color: var(--accent-blue);
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+  }
+  
+  .icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .copyright {
+    margin-top: 2em;
+    font-size: 0.8em;
+  }
+  
+  .dark footer {
+    color: rgb(var(--gray-light));
+  }
+  
+  .dark .social-links a {
+    color: rgb(var(--gray-light));
   }
 </style>
