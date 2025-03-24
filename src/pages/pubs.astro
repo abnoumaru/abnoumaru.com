@@ -1,7 +1,5 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION } from "../consts";
 import "../styles/pagelist.css";
 
@@ -81,46 +79,22 @@ const writings = [
 ];
 ---
 
-<html lang="ja">
-  <head>
-    <BaseHead title="pubs - abnoumaru.com" description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <p>🗣 登壇</p>
-        <ul>
-          {
-            talks.map(([date, title, event, link]) => (
-              <li>
-                <a href={link}>
-                  <p class="title">{title}</p>
-                  <p class="date">
-                    {date} ＠ {event}
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <p>📚 執筆</p>
-        <ul>
-          {
-            writings.map(([date, title, link]) => (
-              <li>
-                <a href={link}>
-                  <p class="title">{title}</p>
-                  <p class="date">{date}</p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title="Publications - abnoumaru.com" description={SITE_DESCRIPTION}>
+  <section class="post-list">
+    <h2>📢 登壇情報</h2>
+    <ul>
+      {
+        talks.map((talk) => (
+          <li>
+            <a href={talk[3]} target="_blank" rel="noopener noreferrer">
+              <p class="title">{talk[1]}</p>
+              <p class="date">
+                {talk[0]} @ {talk[2]}
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

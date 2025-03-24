@@ -5,12 +5,32 @@
  */
 
 :root {
+	/* カラー変数 */
 	--accent-blue: #4682b4;
 	--accent-pink: #e57373;
-	--background-dark-gray: #333333;
+	--background-light: #ffffff;
+	--background-dark: #333333;
+	--text-light: #333333;
+	--text-dark: #f0f0f0;
 	--gray-dark: 96, 96, 96;
 	--gray-light: 200, 200, 200;
+	
+	/* サイズ変数 */
+	--content-width: 720px;
+	--content-padding: 1em;
+	
+	/* ベーススタイル */
+	background-color: var(--background-light);
+	color: var(--text-light);
 }
+
+/* ダークモード */
+.dark {
+	background-color: var(--background-dark);
+	color: var(--text-dark);
+}
+
+/* フォント定義 */
 @font-face {
 	font-family: 'MonaspaceNeon';
 	src: url('/fonts/MonaspaceNeon-Regular.woff') format('woff');
@@ -25,97 +45,115 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+/* ベースレイアウト */
 body {
 	font-family: 'MonaspaceNeon', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: #fff;
-	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	line-height: 1.7;
 }
-.dark body {
-  background-color: var(--background-dark-gray);
-  color: #f0f0f0;
-}
+
 main {
-	width: 720px;
+	width: var(--content-width);
 	max-width: calc(100% - 2em);
 	margin: auto;
-	padding: 3em 1em;
+	padding: 3em var(--content-padding);
 }
-h2,
-h3,
-h4,
-h5
+
+/* 見出し */
+h2, h3, h4, h5, h6 {
+	color: var(--accent-blue);
+	line-height: 1.2;
+	margin: 0 0 0.5rem 0;
+}
+
 h2 {
 	font-size: 1.2205em;
-	color: var(--accent-blue);
 }
+
 h3 {
 	font-size: 0.9765em;
-	color: var(--accent-blue);
 }
+
 h4 {
 	font-size: 0.7815em;
-	color: var(--accent-blue);
 }
+
 h5 {
 	font-size: 0.625em;
-	color: var(--accent-blue);
 }
+
 h6 {
-	margin: 0 0 0.5rem 0;
 	color: rgb(var(--gray-light));
-	line-height: 1.2;
 }
-strong,
-b {
+
+/* テキスト要素 */
+strong, b {
 	font-weight: 700;
 	color: var(--accent-pink);
 }
+
 a {
 	color: var(--accent-blue);
 	transition: color 0.3s ease;
 }
+
 a:hover {
-	color: #4682b4;
+	color: var(--accent-blue);
 	display: inline-block;
 }
+
 p {
 	margin-bottom: 1em;
 }
+
 .prose p {
 	margin-bottom: 2em;
 }
+
+/* フォーム要素 */
 textarea {
 	width: 100%;
 	font-size: 16px;
 }
+
 input {
 	font-size: 16px;
 }
+
 table {
 	width: 100%;
 }
+
+/* メディア要素 */
 img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 8px;
 }
+
+/* コード */
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	color: var(--accent-blue);
+	border-radius: 3px;
 }
+
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
+	overflow: auto;
 }
+
 pre > code {
 	all: unset;
 }
+
+/* 引用 */
 blockquote {
 	border-left: 4px solid var(--accent-pink);
 	padding: 0 0 0 20px;
@@ -123,10 +161,13 @@ blockquote {
 	font-size: 1.333em;
 	color: var(--accent-pink);
 }
+
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
 }
+
+/* レスポンシブデザイン */
 @media (max-width: 720px) {
 	body {
 		font-size: 18px;
@@ -135,6 +176,8 @@ hr {
 		padding: 1em;
 	}
 }
+
+/* アクセシビリティ */
 .sr-only {
 	border: 0;
 	padding: 0;
