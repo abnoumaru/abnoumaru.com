@@ -8,23 +8,11 @@ import "../../styles/pagelist.css";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-// タグの一覧を取得
-const tags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
 ---
 
 <BaseLayout title="blog - abnoumaru.com" description={SITE_DESCRIPTION}>
   <section class="post-list">
     <h2 class="section-title">📙 記事一覧</h2>
-    
-    <div class="tags-container">
-      <p>タグで絞り込み:</p>
-      <div class="tags">
-        {tags.map(tag => (
-          <a href={`/tags/${tag}`} class="tag">#{tag}</a>
-        ))}
-      </div>
-    </div>
     
     <ul>
       {
@@ -51,31 +39,6 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
 </BaseLayout>
 
 <style>
-  .tags-container {
-    margin: 2rem 0;
-  }
-  
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  .tag {
-    display: inline-block;
-    padding: 0.3rem 0.5rem;
-    background-color: rgba(var(--gray-light), 0.3);
-    border-radius: 4px;
-    font-size: 0.8rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .tag:hover {
-    background-color: var(--accent-blue);
-    color: white;
-    transform: translateY(-2px);
-  }
-  
   .post-tags {
     display: inline-flex;
     gap: 0.5rem;
