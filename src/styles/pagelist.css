@@ -33,22 +33,14 @@ section.post-list {
   text-decoration: none;
   padding: 1.5rem;
   height: 100%;
-  background-color: white;
+  background-color: rgba(31, 41, 55, 0.8);
   transition: background-color 0.3s ease;
   border-bottom: none;
 }
 
-.dark .post-list a {
-  background-color: rgba(31, 41, 55, 0.8);
-}
-
 .post-list a:hover {
-  background-color: rgba(var(--gray-light), 0.3);
-  border-bottom: none;
-}
-
-.dark .post-list a:hover {
   background-color: rgba(55, 65, 81, 0.8);
+  border-bottom: none;
 }
 
 .post-list .title {
@@ -61,16 +53,12 @@ section.post-list {
 
 .post-list .date {
   font-size: 0.875rem;
-  color: rgb(var(--gray-dark));
+  color: rgb(var(--gray-light));
   margin: 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.dark .post-list .date {
-  color: rgb(var(--gray-light));
 }
 
 /* タグスタイル */
@@ -91,15 +79,10 @@ section.post-list {
 .tag {
   display: inline-block;
   padding: 0.3rem 0.75rem;
-  background-color: white;
+  background-color: rgba(31, 41, 55, 0.8);
   border-radius: 9999px;
   font-size: 0.8rem;
   transition: all 0.3s ease;
-  border: 1px solid rgba(var(--gray-light), 0.5);
-}
-
-.dark .tag {
-  background-color: rgba(31, 41, 55, 0.8);
   border: 1px solid rgba(75, 85, 99, 0.5);
 }
 
@@ -119,13 +102,9 @@ section.post-list {
 .post-tag {
   font-size: 0.75rem;
   padding: 0.2rem 0.5rem;
-  background-color: rgba(var(--gray-light), 0.3);
+  background-color: rgba(75, 85, 99, 0.3);
   border-radius: 9999px;
   color: var(--accent-blue);
-}
-
-.dark .post-tag {
-  background-color: rgba(75, 85, 99, 0.3);
 }
 
 .unique-tag {

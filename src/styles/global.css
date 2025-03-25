@@ -19,13 +19,13 @@
 	--content-width: 768px;
 	--content-padding: 1.5rem;
 	
-	/* ベーススタイル */
-	background-color: var(--background-light);
-	color: var(--text-light);
+	/* ベーススタイル - デフォルトでダークモード */
+	background-color: var(--background-dark);
+	color: var(--text-dark);
 }
 
-/* ダークモード */
-.dark {
+/* ダークモード（デフォルトとして適用） */
+html {
 	background-color: var(--background-dark);
 	color: var(--text-dark);
 }
@@ -55,6 +55,8 @@ body {
 	font-size: 18px;
 	line-height: 1.8;
 	letter-spacing: 0.01em;
+	background-color: var(--background-dark);
+	color: var(--text-dark);
 }
 
 main {
