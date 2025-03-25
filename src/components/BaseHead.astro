@@ -66,11 +66,15 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
   type="text/partytown"
   async
   src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
-<script type="text/partytown" define:vars={{ GA_ID }}>
+<script is:inline type="text/partytown" define:vars={{ GA_ID }}>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
   gtag("config", GA_ID);
+</script>
+
+<script is:inline type="text/partytown">
+  // ... existing code ...
 </script>
