@@ -15,7 +15,7 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
 
 <BaseLayout title="blog - abnoumaru.com" description={SITE_DESCRIPTION}>
   <section class="post-list">
-    <h2>📙 記事一覧</h2>
+    <h2 class="section-title">📙 記事一覧</h2>
     
     <div class="tags-container">
       <p>タグで絞り込み:</p>
@@ -73,6 +73,7 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
   .tag:hover {
     background-color: var(--accent-blue);
     color: white;
+    transform: translateY(-2px);
   }
   
   .post-tags {
