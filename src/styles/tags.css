@@ -1,3 +1,79 @@
+/* タグページのスタイル */
+.tags-page {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.tags-page h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.tags-page h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-pink));
+  border-radius: 3px;
+}
+
+.tags-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--accent-blue);
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(var(--gray-light), 0.3);
+  height: 100%;
+}
+
+.dark .tag {
+  background-color: rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+.tag:hover {
+  background-color: var(--accent-blue);
+  color: white;
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: var(--accent-blue);
+}
+
+@media (max-width: 768px) {
+  .tags-container {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+  
+  .tag {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
 span a {
     text-decoration: none;
 }

@@ -1,76 +1,119 @@
 header {
     margin: 0;
-    padding: 0 1em;
-    background: #404040;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 0 1.5rem;
+    background: linear-gradient(to right, var(--background-dark), #1e293b);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(8px);
 }
+
 header h2 {
     margin: 0;
-    font-size: 1em;
-    color: #a0a0a0;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
+
 h2 a,
 h2 a.active {
     background: linear-gradient(
         45deg,
-        #ff0000, #ff4000, #ff7300, #ffbf00, #fffb00,
-        #bfff00, #80ff00, #48ff00, #00ff40, #00ffd5,
-        #00bfff, #0080ff, #0048ff, #0000ff, #7a00ff,
-        #bf00ff, #ff00bf, #ff007f, #ff0040, #ff0000
+        var(--accent-blue), var(--accent-pink)
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     display: inline-block;
     text-decoration: none;
-    background-size: 400% 400%;
-    animation: rainbow-text-animation 2s linear infinite;
+    padding: 1rem 0;
+    transition: transform 0.3s ease;
 }
-@keyframes rainbow-text-animation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+
+h2 a:hover {
+    transform: scale(1.05);
+    border-bottom: none;
 }
+
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 4rem;
 }
+
 nav a {
-    padding: 1em 0.5em;
-    color: rgba(255, 255, 255, 0.7);
-    border-bottom: 4px solid transparent;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.375rem;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    border-bottom: none;
 }
+
 nav a:hover {
-    color: rgba(255, 255, 255, 1);
-    border-bottom-color: var(--accent);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: none;
 }
+
 nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-bottom: none;
 }
+
+.internal-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .internal-links a[href="/"]:hover, .internal-links a[href="/"].active {
-    color: #ffa3a3;
+    color: white;
+    background-color: rgba(255, 107, 107, 0.2);
 }
+
 .internal-links a[href="/blog"]:hover, .internal-links a[href="/blog"].active {
-    color: #ffcb93;
+    color: white;
+    background-color: rgba(252, 211, 77, 0.2);
 }
+
 .internal-links a[href="/tags"]:hover, .internal-links a[href="/tags"].active {
-    color: #a8ff93;
+    color: white;
+    background-color: rgba(110, 231, 183, 0.2);
 }
+
 .internal-links a[href="/pubs"]:hover, .internal-links a[href="/pubs"].active {
-    color: #93caff;
+    color: white;
+    background-color: rgba(96, 165, 250, 0.2);
 }
+
 .internal-links a[href="/site"]:hover, .internal-links a[href="/site"].active {
-    color: #93fff5;
+    color: white;
+    background-color: rgba(167, 139, 250, 0.2);
 }
+
 .internal-links a[href="/about"]:hover, .internal-links a[href="/about"].active {
-    color: #d993ff;
+    color: white;
+    background-color: rgba(232, 121, 249, 0.2);
 }
 
 .menu-toggle {
-    display: none; /* 初期状態では☰を非表示にする */
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -78,22 +121,19 @@ nav a.active {
         display: none;
         flex-direction: column;
         gap: 0;
-        /* ボタンを連続して表示 */
         width: 100%;
-        /* 幅を全画面に */
-        position: fixed;
-        top: 60px;
-        /* ヘッダーの下に表示 */
+        position: absolute;
+        top: 4rem;
         left: 0;
-        background-color: rgba(68, 68, 68, 0.8);
-        backdrop-filter: blur(5px);
+        background-color: rgba(17, 24, 39, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .menu-toggle {
         display: block;
-        cursor: pointer;
-        font-size: 24px;
-        color: #fff;
     }
 
     .internal-links.open {
@@ -102,15 +142,18 @@ nav a.active {
 
     .internal-links a {
         display: block;
-        padding: 15px;
-        text-align: center;
-        background-color: transparent;
-        color: #fff;
-        border-bottom: 1px solid #666;
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-radius: 0;
         width: 100%;
+        border-bottom: none;
     }
 
-    .internal-links a:hover {
-        background-color: #666;
+    .internal-links a:hover, .internal-links a.active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    nav {
+        height: 3.5rem;
     }
 }
