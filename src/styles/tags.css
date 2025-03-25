@@ -38,7 +38,7 @@
   justify-content: center;
   text-align: center;
   padding: 1rem;
-  background-color: white;
+  background-color: rgba(31, 41, 55, 0.8);
   border-radius: 0.5rem;
   text-decoration: none;
   color: var(--accent-blue);
@@ -46,13 +46,8 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
   font-weight: 500;
-  border: 1px solid rgba(var(--gray-light), 0.3);
-  height: 100%;
-}
-
-.dark .tag {
-  background-color: rgba(31, 41, 55, 0.8);
   border: 1px solid rgba(75, 85, 99, 0.5);
+  height: 100%;
 }
 
 .tag:hover {

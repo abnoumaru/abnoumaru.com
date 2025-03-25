@@ -16,7 +16,7 @@ h2 a,
 h2 a.active {
     background: linear-gradient(
         45deg,
-        var(--accent-blue), var(--accent-pink)
+        #ec4899, #d946ef, #a855f7
     );
     -webkit-background-clip: text;
     background-clip: text;
