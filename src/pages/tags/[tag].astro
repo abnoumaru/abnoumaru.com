@@ -26,7 +26,7 @@ const posts = (await getCollection("blog")).sort(
 
 <BaseLayout title={page_title} description={SITE_DESCRIPTION}>
   <section class="post-list">
-    <h2><span class="unique-tag">#{tag}</span> 記事一覧</h2>
+    <h2 class="section-title"><span class="unique-tag">#{tag}</span> 記事一覧</h2>
     <ul>
       {
         posts
