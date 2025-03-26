@@ -2,7 +2,6 @@
 title: '好きなものに囲まれて生きる'
 description: 'みんなも自分の持ち物でこれがお気に入り！ってものがあったら教えて。'
 pubDate: 'Oct 14 2024'
-heroImage: '/blog-placeholder-2.jpg'
 tags: ["日常","買い物"]
 isTech: false
 ---

@@ -2,7 +2,6 @@
 title: '退職をするんだよ'
 description: '秋の退職'
 pubDate: 'Sep 14 2024'
-heroImage: '/blog-placeholder-2.jpg'
 tags: ["退職","キャリア"]
 isTech: true
 ---

@@ -2,7 +2,6 @@
 title: '2024年振り返り、来年に向けて'
 description: '2024振り返りです'
 pubDate: 'Dec 31 2024'
-heroImage: '/blog-placeholder-2.jpg'
 tags: ["日常"]
 isTech: false
 ---

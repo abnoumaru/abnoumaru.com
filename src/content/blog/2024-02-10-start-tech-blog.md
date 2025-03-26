@@ -2,7 +2,6 @@
 title: 'Tech Blogが生えました'
 description: 'Astroのほぼテンプレで作ったブログにTech Blogを生やした'
 pubDate: 'Feb 10 2024'
-heroImage: '/blog-placeholder-3.jpg'
 tags: ["Astro","お知らせ"]
 isTech: true
 ---
