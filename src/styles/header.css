@@ -16,7 +16,7 @@ h2 a,
 h2 a.active {
     background: linear-gradient(
         45deg,
-        #ec4899, #d946ef, #a855f7
+        #be185d, #a21caf, #7c3aed
     );
     -webkit-background-clip: text;
     background-clip: text;

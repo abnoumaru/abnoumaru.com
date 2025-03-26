@@ -8,6 +8,9 @@ import "../styles/blog-post.css";
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const pageUrl = Astro.url.href;
+const encodedUrl = encodeURIComponent(pageUrl);
+const encodedTitle = encodeURIComponent(title);
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
@@ -31,7 +34,68 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <hr />
       </div>
       <slot />
+      
+      <div class="share-buttons">
+        <a href={`https://b.hatena.ne.jp/entry/${pageUrl}`} target="_blank" rel="noopener" aria-label="はてなブックマークでシェア" class="hatena-bookmark-button">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 7a1 1 0 0 0-1 1v8a1 1 0 0 0 2 0V8a1 1 0 0 0-1-1Z"/>
+            <path fill="currentColor" d="M12 5a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm0 16a9 9 0 1 0 0-18a9 9 0 0 0 0 18Zm0-2a7 7 0 1 1 0-14a7 7 0 0 1 0 14Z"/>
+          </svg>
+        </a>
+        <a href={`https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener" aria-label="Xでシェア" class="x-share-button">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M18.205 2.25h3.308l-7.227 8.26l8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"/>
+          </svg>
+        </a>
+      </div>
+      
       <Comment />
     </div>
   </article>
 </BaseLayout>
+
+<style>
+  .share-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(var(--gray-light), 0.2);
+    border-bottom: 1px solid rgba(var(--gray-light), 0.2);
+  }
+  
+  .share-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  
+  .hatena-bookmark-button {
+    background-color: #00a4de;
+    color: white;
+  }
+  
+  .hatena-bookmark-button:hover {
+    background-color: #0086b3;
+    transform: translateY(-2px);
+    border: none;
+  }
+  
+  .x-share-button {
+    background-color: #000;
+    color: white;
+  }
+  
+  .x-share-button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    border: none;
+  }
+</style>
