@@ -36,10 +36,6 @@ main {
 
 .date {
   margin-bottom: 0.5em;
-  color: rgb(var(--gray-dark));
-}
-
-.dark .date {
   color: rgb(var(--gray-light));
 }
 
