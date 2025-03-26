@@ -2,7 +2,6 @@
 title: 'techブログの切り出しやめた'
 description: 'やめた'
 pubDate: 'Sep 15 2024'
-heroImage: '/blog-placeholder-2.jpg'
 tags: ["お知らせ","Astro"]
 isTech: true
 ---
