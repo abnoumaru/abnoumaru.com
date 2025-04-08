@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import { GA_ID } from "../consts";
+import { SITE, SOCIAL, ANALYTICS } from "../consts";
 
 interface Props {
   title: string;
@@ -12,6 +12,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const GA_ID = ANALYTICS.googleAnalytics.id;
 ---
 
 <!-- Global Metadata -->
@@ -22,6 +23,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
   href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🥙</text></svg>"
 />
 <meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#111827" />
 
 <!-- Font preloads -->
 <link
@@ -46,6 +48,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={SITE.author} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -53,6 +56,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:site_name" content={SITE.title} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -60,21 +64,23 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:creator" content={SOCIAL.twitter.handle} />
 
 <!-- Google tag (gtag.js) - パーティータウンで最適化済み -->
-<script
-  type="text/partytown"
-  async
-  src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
-<script is:inline type="text/partytown" define:vars={{ GA_ID }}>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-  gtag("config", GA_ID);
-</script>
-
-<script is:inline type="text/partytown">
-  // ... existing code ...
-</script>
+{ANALYTICS.googleAnalytics.enabled && (
+  <>
+    <script
+      type="text/partytown"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+    ></script>
+    <script is:inline type="text/partytown" define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_ID);
+    </script>
+  </>
+)}

@@ -244,3 +244,16 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* 強制的にダークモードを適用するCSSの追加（ThemeIcon.astroの代わり） */
+:root {
+	color-scheme: dark;
+}
+
+/* スクリプトが無効な場合でもダークモードを適用 */
+@media (prefers-color-scheme: light) {
+	:root {
+		background-color: var(--background-dark);
+		color: var(--text-dark);
+	}
+}
