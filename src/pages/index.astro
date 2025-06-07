@@ -1,13 +1,102 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import "../styles/home.css";
+
+const interests = ["🏃‍♂️ Ops", "🦎 SRE", "🔭 O11y"];
+
+const careers = [
+  [
+    "2024/10",
+    "Present",
+    "iv",
+    "Engineer（SRE）",
+    "Platform Circle @ IVRy Inc. 📞",
+  ],
+  [
+    "2020/05",
+    "2024/09",
+    "th",
+    "IT Infrastructure Engineer（SRE）",
+    "Sreake Business Department @ 3-shake Inc.",
+  ],
+  [
+    "2016/04",
+    "2020/04",
+    "hb",
+    "Operations Engineer",
+    "Engineering Group @ HEARTBEATS Corporation",
+  ],
+  [
+    "2012/10",
+    "2016/03",
+    "hb",
+    "Part-time Operations Engineer",
+    "Operations Group @ HEARTBEATS Corporation",
+  ],
+];
+
+const educations = [
+  [
+    "2012/04",
+    "2016/03",
+    "uec",
+    "Bachelor of Engineering",
+    "⚡ The University of Electro-Communications",
+  ],
+];
+
+const hobbies = ["📻", "🌸", "☔", "🍜"];
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <div class="home-content">
-    <p>Welcome to abnoumaru's website!</p>
-    <img src="/abnoumaru.webp" alt="abnoumaru icon" class="icon-image" width="350" height="350" loading="eager" />
-    <p>I'm an Reliability engineer based in 🇯🇵</p>
-  </div>
+  <h1>👤 abnoumaru</h1>
+  
+  <h2>👀 Interests</h2>
+  <p>
+    {
+      interests.map((interest, index) => (
+        <span>
+          {interest}
+          {index < interests.length - 1 && " / "}
+        </span>
+      ))
+    }
+  </p>
+  
+  <h2>📝 Career</h2>
+  {
+    careers.map((career) => (
+      <div class={`career-item ${career[2]}`}>
+        <div class="period">{career[0]} - {career[1]}</div>
+        <div class="position">{career[3]}</div>
+        <div class="company">{career[4]}</div>
+      </div>
+    ))
+  }
+
+  <h2>🎓 Education</h2>
+  {
+    educations.map((education) => (
+      <div class={`education-item ${education[2]}`}>
+        <div class="period">{education[0]} - {education[1]}</div>
+        <div class="degree">{education[3]}</div>
+        <div class="school">{education[4]}</div>
+      </div>
+    ))
+  }
+
+  <h2>🎴 Hobbies</h2>
+  <p>
+    {
+      hobbies.map((hobby, index) => (
+        <span>
+          {hobby}
+          {index < hobbies.length - 1 && " / "}
+        </span>
+      ))
+    }
+  </p>
+  
+  <h2>📧 Contact</h2>
+  <p>me [at] abnoumaru [dot] com</p>
 </BaseLayout>
