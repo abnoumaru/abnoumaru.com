@@ -86,48 +86,95 @@ const today = new Date();
 
 <style>
   footer {
-    padding: 2em 1em 6em 1em;
-    background: linear-gradient(var(--gray-gradient));
-    color: rgb(var(--gray-dark));
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
     text-align: center;
+    background-color: #fff;
   }
   
   .social-links {
     display: flex;
     justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
   }
   
   .social-links a {
-    text-decoration: none;
-    color: rgb(var(--gray-dark));
+    color: #666;
+    transition: color 0.2s ease;
   }
   
   .social-links a:hover {
-    color: var(--accent-blue);
+    color: #3498db;
   }
   
-  .icon {
+  .social-links svg {
     width: 24px;
     height: 24px;
     transition: transform 0.2s ease;
   }
   
-  .icon:hover {
-    transform: scale(1.2);
+  .social-links a:hover svg {
+    transform: scale(1.1);
   }
   
   .copyright {
-    margin-top: 2em;
-    font-size: 0.8em;
+    font-size: 0.9rem;
+    color: #666;
   }
   
-  .dark footer {
-    color: rgb(var(--gray-light));
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
   }
   
-  .dark .social-links a {
-    color: rgb(var(--gray-light));
+  @media (max-width: 768px) {
+    footer {
+      padding: 1.5rem 0;
+    }
+    
+    .social-links {
+      gap: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .social-links svg {
+      width: 22px;
+      height: 22px;
+    }
+    
+    .copyright {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    footer {
+      padding: 1rem 0;
+    }
+    
+    .social-links {
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .copyright {
+      font-size: 0.75rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
   }
 </style>
