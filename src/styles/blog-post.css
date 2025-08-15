@@ -7,11 +7,16 @@ main {
 
 .hero-image {
   width: 100%;
+  margin-bottom: 2rem; /* Add some space below */
 }
 
 .hero-image img {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto; /* This will center the block-level image */
+  max-width: 80%; /* Make the image smaller than the container */
+  width: auto;
+  height: auto;
+  max-height: 500px; /* Also add a max-height to prevent very tall images from dominating */
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
