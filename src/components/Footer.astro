@@ -79,14 +79,18 @@ const today = new Date();
       </svg>
     </a>
   </div>
-  <div class="copyright">
-    &copy; {today.getFullYear()} abnoumaru. All rights reserved.
+  <div class="footer-text">
+    <p>
+      Built with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>.
+      Analytics by <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">Cloudflare Web Analytics</a>.
+    </p>
+    <p>&copy; {today.getFullYear()} abnoumaru</p>
   </div>
 </footer>
 
 <style>
   footer {
-    padding: 2rem 0;
+    padding: 2.5rem 0; /* Increased padding */
     border-top: 1px solid #eee;
     text-align: center;
     background-color: #fff;
@@ -96,31 +100,43 @@ const today = new Date();
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Increased margin */
   }
   
   .social-links a {
-    color: #666;
+    color: #888; /* Lighter, more subtle color */
     transition: color 0.2s ease;
   }
   
   .social-links a:hover {
-    color: #3498db;
+    color: #111; /* Simple hover to black */
   }
   
   .social-links svg {
     width: 24px;
     height: 24px;
-    transition: transform 0.2s ease;
+    /* Removed transform transition for simplicity */
   }
   
-  .social-links a:hover svg {
-    transform: scale(1.1);
-  }
+  /* Removed hover scale effect */
   
-  .copyright {
+  .footer-text {
     font-size: 0.9rem;
-    color: #666;
+    color: #888;
+    margin: 0;
+  }
+
+  .footer-text p {
+    margin: 0.25rem 0;
+  }
+
+  .footer-text a {
+    color: #888;
+    text-decoration: underline;
+  }
+
+  .footer-text a:hover {
+    color: #111;
   }
   
   .sr-only {
@@ -137,12 +153,12 @@ const today = new Date();
   
   @media (max-width: 768px) {
     footer {
-      padding: 1.5rem 0;
+      padding: 2rem 0;
     }
     
     .social-links {
       gap: 1.25rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
     
     .social-links svg {
@@ -157,7 +173,7 @@ const today = new Date();
   
   @media (max-width: 480px) {
     footer {
-      padding: 1rem 0;
+      padding: 1.5rem 0;
     }
     
     .social-links {

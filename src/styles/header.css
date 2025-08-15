@@ -8,7 +8,7 @@ header {
 nav {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 3rem; /* Match main content padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +20,7 @@ header h2 {
 }
 
 header h2 a {
-    color: #2c3e50;
+    color: #111; /* Match new global style */
     text-decoration: none;
 }
 
@@ -30,16 +30,16 @@ header h2 a {
 }
 
 .internal-links a {
-    color: #666;
+    color: #555; /* Muted color */
     text-decoration: none;
     padding: 0.5rem 0;
     border-bottom: 2px solid transparent;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease; /* Smoother transition */
 }
 
 .internal-links a:hover {
-    color: #3498db;
-    border-bottom-color: #3498db;
+    color: #111; /* Darken on hover */
+    border-bottom-color: #111; /* Simple border highlight */
 }
 
 .menu-toggle {
@@ -48,17 +48,17 @@ header h2 a {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #2c3e50;
+    color: #222; /* Match new global style */
     padding: 0.5rem;
 }
 
 .menu-toggle:hover {
-    color: #3498db;
+    color: #555; /* Match new hover style */
 }
 
 @media (max-width: 768px) {
     nav {
-        padding: 0 1rem;
+        padding: 0 1.5rem; /* Match main content padding */
         position: relative;
     }
     
@@ -79,7 +79,7 @@ header h2 a {
         padding: 1rem;
         gap: 0;
         z-index: 1000;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Softer shadow */
     }
     
     .internal-links.open {
@@ -99,7 +99,7 @@ header h2 a {
 
 @media (max-width: 480px) {
     nav {
-        padding: 0 0.5rem;
+        padding: 0 1rem; /* Match main content padding */
     }
     
     header h2 {

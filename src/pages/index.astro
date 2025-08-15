@@ -8,30 +8,30 @@ const careers = [
   [
     "2024/10",
     "Present",
-    "iv",
-    "Engineer（SRE）",
-    "Platform Circle @ IVRy Inc. 📞",
+    "Software Engineer (Platform Circle / Architecture Project)",
+    "IVRy Inc. ",
+    "https://ivry.jp/company/",
   ],
   [
     "2020/05",
     "2024/09",
-    "th",
-    "IT Infrastructure Engineer（SRE）",
-    "Sreake Business Department @ 3-shake Inc.",
+    "IT Infrastructure Engineer (Sreake Business Department)",
+    "3-shake Inc.",
+    "https://3-shake.com/",
   ],
   [
     "2016/04",
     "2020/04",
-    "hb",
-    "Operations Engineer",
-    "Engineering Group @ HEARTBEATS Corporation",
+    "Operations Engineer (Operations Group -> Engineering Group)",
+    "HEARTBEATS Corporation",
+    "https://heartbeats.jp/",
   ],
   [
     "2012/10",
     "2016/03",
-    "hb",
-    "Part-time Operations Engineer",
-    "Operations Group @ HEARTBEATS Corporation",
+    "Part-time Operations Engineer (Operations Group)",
+    "HEARTBEATS Corporation",
+    "https://heartbeats.jp/",
   ],
 ];
 
@@ -39,9 +39,9 @@ const educations = [
   [
     "2012/04",
     "2016/03",
-    "uec",
     "Bachelor of Engineering",
-    "⚡ The University of Electro-Communications",
+    "The University of Electro-Communications",
+    "https://www.uec.ac.jp/",
   ],
 ];
 
@@ -49,9 +49,15 @@ const hobbies = ["📻", "🌸", "☔", "🍜"];
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <h1>👤 abnoumaru</h1>
+  <h1>id:abnoumaru</h1>
   
-  <h2>👀 Interests</h2>
+  <p class="bio">
+    That chaotic daily life, more beautiful than anything. <br />
+    Like factory lights shining in the dead of night.
+  </p>
+  <p class="lyric-source">— from "snow irony" by Maison book girl</p>
+  
+  <h2>Interests</h2>
   <p>
     {
       interests.map((interest, index) => (
@@ -63,29 +69,29 @@ const hobbies = ["📻", "🌸", "☔", "🍜"];
     }
   </p>
   
-  <h2>📝 Career</h2>
+  <h2>Career</h2>
   {
     careers.map((career) => (
       <div class={`career-item ${career[2]}`}>
         <div class="period">{career[0]} - {career[1]}</div>
-        <div class="position">{career[3]}</div>
-        <div class="company">{career[4]}</div>
+        <div class="position">{career[2]}</div>
+        <div class="company">@ <a href="{career[4]}" target="_blank">{career[3]}</a></div>
       </div>
     ))
   }
 
-  <h2>🎓 Education</h2>
+  <h2>Education</h2>
   {
     educations.map((education) => (
       <div class={`education-item ${education[2]}`}>
         <div class="period">{education[0]} - {education[1]}</div>
-        <div class="degree">{education[3]}</div>
-        <div class="school">{education[4]}</div>
+        <div class="degree">{education[2]}</div>
+        <div class="school">@ <a href="{education[4]}" target="_blank">{education[3]}</a></div>
       </div>
     ))
   }
 
-  <h2>🎴 Hobbies</h2>
+  <h2>Hobbies</h2>
   <p>
     {
       hobbies.map((hobby, index) => (
@@ -97,6 +103,22 @@ const hobbies = ["📻", "🌸", "☔", "🍜"];
     }
   </p>
   
-  <h2>📧 Contact</h2>
+  <h2>Contact</h2>
   <p>me [at] abnoumaru [dot] com</p>
 </BaseLayout>
+
+<style>
+  .bio {
+    font-style: italic;
+    color: #555;
+    margin: 1.5rem 0 0 0; /* Adjusted margin */
+    text-align: left;
+  }
+  .lyric-source {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: left;
+    margin-top: 0.5rem; /* Adjusted margin */
+    margin-bottom: 2.5rem;
+  }
+</style>
