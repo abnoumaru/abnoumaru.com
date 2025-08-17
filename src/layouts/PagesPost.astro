@@ -14,18 +14,18 @@ const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
 
 // シェアボタンの設定をconsts.tsから取得し、URL生成
-const shareButtons = SHARE_BUTTONS.map(button => {
+const shareButtons = SHARE_BUTTONS.map((button) => {
   let url = "";
-  
+
   if (button.name === "hatena") {
     url = `${button.baseUrl}${pageUrl}`;
   } else if (button.name === "x") {
     url = `${button.baseUrl}?url=${encodedUrl}&text=${encodedTitle}`;
   }
-  
+
   return {
     ...button,
-    url
+    url,
   };
 });
 ---
@@ -33,7 +33,11 @@ const shareButtons = SHARE_BUTTONS.map(button => {
 <BaseLayout title={title} description={description} image={heroImage}>
   <article>
     <div class="hero-image">
-      {heroImage && <img width={1020} height={510} src={heroImage} alt={title} loading="lazy" decoding="async" />}
+      {
+        heroImage && (
+          <img width={1020} height={510} src={heroImage} alt={title} loading="lazy" decoding="async" />
+        )
+      }
     </div>
     <div class="prose">
       <div class="title">
@@ -51,24 +55,17 @@ const shareButtons = SHARE_BUTTONS.map(button => {
         <hr />
       </div>
       <slot />
-      
+
       <div class="share-buttons">
         {
-          shareButtons.map(button => (
-            <a 
-              href={button.url} 
-              target="_blank" 
-              rel="noopener" 
-              aria-label={button.ariaLabel} 
-              class={`share-button ${button.name}-button`}
-              style={`--bg-color: ${button.bgColor}; --hover-bg-color: ${button.hoverBgColor};`}
-            >
+          shareButtons.map((button) => (
+            <a href={button.url} target="_blank" rel="noopener" aria-label={button.ariaLabel} class={`share-button ${button.name}-button`} style={`--bg-color: ${button.bgColor}; --hover-bg-color: ${button.hoverBgColor};`}>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" set:html={button.icon} />
             </a>
           ))
         }
       </div>
-      
+
       <Comment />
     </div>
   </article>
@@ -85,7 +82,7 @@ const shareButtons = SHARE_BUTTONS.map(button => {
     border-top: 1px solid rgba(var(--gray-light), 0.2);
     border-bottom: 1px solid rgba(var(--gray-light), 0.2);
   }
-  
+
   .share-button {
     display: flex;
     align-items: center;
@@ -98,7 +95,7 @@ const shareButtons = SHARE_BUTTONS.map(button => {
     background-color: var(--bg-color);
     color: white;
   }
-  
+
   .share-button:hover {
     background-color: var(--hover-bg-color);
     transform: translateY(-2px);

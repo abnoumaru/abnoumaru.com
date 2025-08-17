@@ -18,7 +18,10 @@
     "@astrojs/partytown": "^2.1.2",
     "@astrojs/rss": "^4.0.9",
     "@astrojs/sitemap": "^3.2.1",
+    "@iconify-json/lucide": "^1.2.0",
+    "@iconify-json/simple-icons": "^1.2.48",
     "astro": "^5.5.4",
+    "astro-icon": "^1.1.5",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
