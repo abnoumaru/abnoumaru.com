@@ -50,13 +50,13 @@ const hobbies = ["📻", "🌸", "☔", "🍜"];
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <h1>id:abnoumaru</h1>
-  
+
   <p class="bio">
     That chaotic daily life, more beautiful than anything. <br />
     Like factory lights shining in the dead of night.
   </p>
-  <p class="lyric-source">— from "snow irony" by <a href="https://www.maisonbookgirl.com/" target="_blank">Maison book girl</a></p>
-  
+  <p class="lyric-source">— from "<a href="https://open.spotify.com/intl-ja/track/5ASPsPk0JZW85lHmkmOFTf?si=fb94960fbbb04c9f" target="_blank">snow irony_</a>" by <a href="https://www.maisonbookgirl.com/" target="_blank">Maison book girl</a></p>
+
   <h2>Interests</h2>
   <p>
     {
@@ -68,14 +68,14 @@ const hobbies = ["📻", "🌸", "☔", "🍜"];
       ))
     }
   </p>
-  
+
   <h2>Career</h2>
   {
     careers.map((career) => (
       <div class={`career-item ${career[2]}`}>
         <div class="period">{career[0]} - {career[1]}</div>
         <div class="position">{career[2]}</div>
-        <div class="company">@ <a href="{career[4]}" target="_blank">{career[3]}</a></div>
+        <div class="company">@ <a href={`${career[4]}`} target="_blank">{career[3]}</a></div>
       </div>
     ))
   }
@@ -86,7 +86,7 @@ const hobbies = ["📻", "🌸", "☔", "🍜"];
       <div class={`education-item ${education[2]}`}>
         <div class="period">{education[0]} - {education[1]}</div>
         <div class="degree">{education[2]}</div>
-        <div class="school">@ <a href="{education[4]}" target="_blank">{education[3]}</a></div>
+        <div class="school">@ <a href={`${education[4]}`} target="_blank">{education[3]}</a></div>
       </div>
     ))
   }
@@ -102,7 +102,7 @@ const hobbies = ["📻", "🌸", "☔", "🍜"];
       ))
     }
   </p>
-  
+
   <h2>Contact</h2>
   <p>me [at] abnoumaru [dot] com</p>
 </BaseLayout>
