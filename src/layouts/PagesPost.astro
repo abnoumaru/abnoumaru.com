@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import Comment from "../components/Comment.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import { Icon } from "astro-icon/components";
 import { SHARE_BUTTONS } from "../consts";
 import "../styles/blog-post.css";
 
@@ -59,8 +60,8 @@ const shareButtons = SHARE_BUTTONS.map((button) => {
       <div class="share-buttons">
         {
           shareButtons.map((button) => (
-            <a href={button.url} target="_blank" rel="noopener" aria-label={button.ariaLabel} class={`share-button ${button.name}-button`} style={`--bg-color: ${button.bgColor}; --hover-bg-color: ${button.hoverBgColor};`}>
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" set:html={button.icon} />
+            <a href={button.url} target="_blank" rel="noopener" aria-label={button.ariaLabel} class={`share-button ${button.name}-button`} style={`--bg-color: ${button.bgColor}; --hover-bg-color: ${button.hoverBgColor};`} >
+              <Icon name={button.icon} />
             </a>
           ))
         }
