@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { Icon } from "astro-icon/components";
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h1>links</h1>
+  <div class="social-links">
+    <a
+      href={`https://github.com/abnoumaru`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Icon name="simple-icons:github" />
+      <span>GitHub</span>
+    </a>
+    <a href="https://speakerdeck.com/abnoumaru" target="_blank">
+      <Icon name="simple-icons:speakerdeck" />
+      <span>Speaker Deck</span>
+    </a>
+    <a href="https://x.com/abnoumaru" target="_blank">
+      <Icon name="simple-icons:x" />
+      <span>X</span>
+    </a>
+    <a href="https://www.last.fm/ja/user/abnoumaru" target="_blank">
+      <Icon name="simple-icons:lastdotfm" />
+      <span>Last.fm</span>
+    </a>
+    <a href="https://annict.com/@abnoumaru/watched" target="_blank">
+      <Icon name="lucide:link" />
+      <span>Annict</span>
+    </a>
+    <a href="https://mixi.social/@abnoumaru" target="_blank">
+      <Icon name="lucide:link" />
+      <span>mixi2</span>
+    </a>
+    <a href="https://bsky.app/profile/abnoumaru.bsky.social" target="_blank">
+      <Icon name="simple-icons:bluesky" />
+      <span>Bluesky</span>
+    </a>
+    <a href="https://b.hatena.ne.jp/abnoumaru/" target="_blank">
+      <Icon name="simple-icons:hatenabookmark" />
+      <span>はてなブックマーク</span>
+    </a>
+    <a href="https://keybase.io/abnoumaru" target="_blank">
+      <Icon name="simple-icons:keybase" />
+      <span>Keybase</span>
+    </a>
+    <a
+      href="https://www.amazon.jp/hz/wishlist/ls/3LOHR3BZHXF1H?ref_=wl_share"
+      target="_blank"
+    >
+      <Icon name="lucide:link" />
+      <span>Wishlist</span>
+    </a>
+  </div>
+  <style>
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #888; /* Lighter, more subtle color */
+      transition: color 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .social-links a:hover {
+      color: #111; /* Simple hover to black */
+    }
+
+    .social-links a :global(svg) {
+      width: 1em;
+      height: 1em;
+    }
+  </style>
+</BaseLayout>

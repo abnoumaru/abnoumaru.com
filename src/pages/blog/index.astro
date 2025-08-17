@@ -11,7 +11,7 @@ const posts = (await getCollection("blog")).sort(
 
 <BaseLayout title="blog - abnoumaru.com" description={SITE_DESCRIPTION}>
   <h1>blog</h1>
-  
+
   <ul class="simple-post-list">
     {
       posts.map((post) => (
@@ -32,7 +32,7 @@ const posts = (await getCollection("blog")).sort(
     padding: 0;
     margin: 2rem 0 0 0;
   }
-  
+
   .simple-post-list li {
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@ const posts = (await getCollection("blog")).sort(
     padding: 0;
     border: none !important; /* Explicitly and forcefully remove any border */
   }
-  
+
   .post-date {
     color: #888;
     font-size: 0.9rem;

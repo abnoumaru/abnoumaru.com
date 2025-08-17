@@ -10,6 +10,7 @@ import "../styles/header.css";
     <div class="internal-links" id="menu">
       <HeaderLink href="/">home</HeaderLink>
       <HeaderLink href="/blog">blog</HeaderLink>
+      <HeaderLink href="/links">links</HeaderLink>
     </div>
     <div class="menu-toggle" id="menu-toggle">☰</div>
   </nav>
@@ -17,8 +18,8 @@ import "../styles/header.css";
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var menuToggle = document.getElementById("menu-toggle");
-    var menu = document.getElementById("menu");
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
 
     if (menuToggle) {
       menuToggle.addEventListener("click", function () {

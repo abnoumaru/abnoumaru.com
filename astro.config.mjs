@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import partytown from "@astrojs/partytown";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
+    icon(),
   ],
   // パフォーマンス最適化の設定
   build: {
