@@ -13,14 +13,14 @@
     "prettier": "prettier --write 'src/**/*.{ts,astro}'"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.2.1",
-    "@astrojs/partytown": "^2.1.2",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/mdx": "^4.3.9",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/rss": "^4.0.13",
+    "@astrojs/sitemap": "^3.6.0",
     "@iconify-json/lucide": "^1.2.0",
     "@iconify-json/simple-icons": "^1.2.48",
-    "astro": "^5.5.4",
+    "astro": "^5.15.3",
     "astro-icon": "^1.1.5",
     "typescript": "^5.3.3"
   },
