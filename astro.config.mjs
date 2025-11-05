@@ -4,12 +4,16 @@ import sitemap from '@astrojs/sitemap';
 import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 
+const HOMEPAGE = 'https://abnoumaru.com/';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://abnoumaru.com',
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: (page) => page === HOMEPAGE,
+    }),
     partytown({
       config: {
         forward: ['dataLayer.push'],

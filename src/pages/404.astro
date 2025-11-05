@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE_TITLE } from "../consts";
+
+export const prerender = true;
+Astro.response.status = 404;
+
+const title = "404 - Not Found";
+const description = "指定されたページは見つかりませんでした";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="not-found">
+    <h1>404</h1>
+    <p>お探しのページは存在しないか、移動された可能性があります。</p>
+    <a class="home-link" href="/">トップページへ戻る</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 4rem 0;
+  }
+
+  .not-found h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .not-found p {
+    color: #555;
+    margin: 0;
+  }
+
+  .home-link {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: underline;
+  }
+</style>
