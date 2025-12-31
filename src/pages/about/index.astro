@@ -12,4 +12,27 @@ import { SITE_TITLE } from "../../consts";
 
   <h3>Contact</h3>
   <p>me [at] abnoumaru [dot] com</p>
+
+  <h3>Icon</h3>
+  <div class="icon-gallery">
+    <img src="/icon/abnoumaru.jpg" alt="abnoumaru" />
+    <img src="/icon/abnoumaru-public.jpg" alt="abnoumaru public" />
+    <img src="/icon/abnoumaru-photo-of-the-author.webp" alt="abnoumaru photo of the author" />
+    <img src="/icon/abnoumaru-omoide.webp" alt="abnoumaru omoide" />
+  </div>
 </BaseLayout>
+
+<style>
+  .icon-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .icon-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+</style>
