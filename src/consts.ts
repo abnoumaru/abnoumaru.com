@@ -46,16 +46,12 @@ export const SHARE_BUTTONS = [
     baseUrl: "https://b.hatena.ne.jp/entry/",
     ariaLabel: "はてなブックマークでシェア",
     icon: "simple-icons:hatenabookmark",
-    bgColor: "#00a4de",
-    hoverBgColor: "#0086b3",
   },
   {
     name: "x",
     baseUrl: "https://x.com/intent/tweet",
     ariaLabel: "Xでシェア",
     icon: "simple-icons:x",
-    bgColor: "#000",
-    hoverBgColor: "#333",
   },
 ] as const;
 
