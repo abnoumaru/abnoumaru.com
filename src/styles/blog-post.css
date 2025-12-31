@@ -17,8 +17,8 @@ main {
   width: auto;
   height: auto;
   max-height: 500px; /* Also add a max-height to prevent very tall images from dominating */
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .prose {

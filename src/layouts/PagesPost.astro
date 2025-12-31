@@ -60,7 +60,7 @@ const shareButtons = SHARE_BUTTONS.map((button) => {
       <div class="share-buttons">
         {
           shareButtons.map((button) => (
-            <a href={button.url} target="_blank" rel="noopener" aria-label={button.ariaLabel} class={`share-button ${button.name}-button`} style={`--bg-color: ${button.bgColor}; --hover-bg-color: ${button.hoverBgColor};`} >
+            <a href={button.url} target="_blank" rel="noopener" aria-label={button.ariaLabel} class={`share-button ${button.name}-button`} >
               <Icon name={button.icon} />
             </a>
           ))
@@ -88,18 +88,13 @@ const shareButtons = SHARE_BUTTONS.map((button) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
+    color: #111;
     border: none;
-    background-color: var(--bg-color);
-    color: white;
+    background: none;
   }
 
   .share-button:hover {
-    background-color: var(--hover-bg-color);
-    transform: translateY(-2px);
+    color: #111;
     border: none;
   }
 </style>
