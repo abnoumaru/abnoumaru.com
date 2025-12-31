@@ -5,7 +5,8 @@ import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <h1>links</h1>
+  <h2>links</h2>
+
   <div class="social-links">
     <a
       href={`https://github.com/abnoumaru`}
@@ -39,10 +40,6 @@ import { Icon } from "astro-icon/components";
       <Icon name="simple-icons:bluesky" />
       <span>Bluesky</span>
     </a>
-    <a href="https://b.hatena.ne.jp/abnoumaru/" target="_blank">
-      <Icon name="simple-icons:hatenabookmark" />
-      <span>はてなブックマーク</span>
-    </a>
     <a href="https://keybase.io/abnoumaru" target="_blank">
       <Icon name="simple-icons:keybase" />
       <span>Keybase</span>
@@ -57,10 +54,6 @@ import { Icon } from "astro-icon/components";
     >
       <Icon name="lucide:link" />
       <span>Wishlist</span>
-    </a>
-    <a href="https://buymeacoffee.com/abnoumaru" target="_blank">
-      <Icon name="simple-icons:buymeacoffee" />
-      <span>Buy me a pizza</span>
     </a>
   </div>
   <style>

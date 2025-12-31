@@ -1,5 +1,14 @@
 ---
+import { execSync } from "child_process";
+
 const today = new Date();
+
+let commitSha = "";
+try {
+  commitSha = execSync("git rev-parse --short HEAD").toString().trim();
+} catch {
+  commitSha = "unknown";
+}
 ---
 
 <footer>
@@ -8,40 +17,17 @@ const today = new Date();
       Built with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>.
       Analytics by <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">Cloudflare Web Analytics</a>.
     </p>
-    <p>&copy; {today.getFullYear()} abnoumaru</p>
+    <p>&copy; {today.getFullYear()} abnoumaru / commit hash: {commitSha}</p>
   </div>
 </footer>
 
 <style>
   footer {
-    padding: 2.5rem 0; /* Increased padding */
+    padding: 2.5rem 0;
     border-top: 1px solid #eee;
     text-align: center;
     background-color: #fff;
   }
-
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem; /* Increased margin */
-  }
-
-  .social-links a {
-    color: #111;
-  }
-
-  .social-links a:hover {
-    color: #111; /* Simple hover to black */
-  }
-
-  .social-links svg {
-    width: 24px;
-    height: 24px;
-    /* Removed transform transition for simplicity */
-  }
-
-  /* Removed hover scale effect */
 
   .footer-text {
     font-size: 0.9rem;
@@ -62,58 +48,15 @@ const today = new Date();
     color: #111;
   }
 
-  .sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-  }
-
   @media (max-width: 768px) {
     footer {
       padding: 2rem 0;
-    }
-
-    .social-links {
-      gap: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .social-links svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .copyright {
-      font-size: 0.8rem;
     }
   }
 
   @media (max-width: 480px) {
     footer {
       padding: 1.5rem 0;
-    }
-
-    .social-links {
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .social-links svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .copyright {
-      font-size: 0.75rem;
-      padding: 0 1rem;
-      text-align: center;
     }
   }
 </style>
