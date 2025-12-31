@@ -10,8 +10,7 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <BaseLayout title="blog - abnoumaru.com" description={SITE_DESCRIPTION}>
-  <h1>blog</h1>
-
+  <h2>blog</h2>
   <ul class="simple-post-list">
     {
       posts.map((post) => (
@@ -46,21 +45,20 @@ const posts = (await getCollection("blog")).sort(
   }
 
   .post-date {
-    color: #888;
+    color: #111;
     font-size: 1rem;
-    width: 115px; /* Give it a fixed width to align titles */
-    flex-shrink: 0; /* Prevent the date from shrinking */
+    width: 115px;
+    flex-shrink: 0;
   }
 
   .simple-post-list a {
     font-size: 1rem;
     text-decoration: underline;
-    color: #222;
-    transition: color 0.2s ease;
+    color: #111;
   }
 
   .simple-post-list a:hover {
     text-decoration: underline;
-    color: #555;
+    color: #111;
   }
 </style>

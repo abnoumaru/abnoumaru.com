@@ -63,30 +63,6 @@ img {
 	border-radius: 0;
 }
 
-/* --- Simplified Career/Education Items --- */
-.career-item, .education-item {
-	margin-bottom: 1.5rem;
-	padding: 1rem;
-	border-left: 2px solid #111;
-	background-color: transparent; /* Removed background color */
-	border-radius: 0;
-}
-
-.period {
-	font-size: 0.9rem;
-	color: #111;
-	margin-bottom: 0.5rem;
-}
-
-.position, .degree {
-	font-weight: bold;
-	margin-bottom: 0.25rem;
-}
-
-.company, .school {
-	color: #111;
-}
-
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
 	main {
