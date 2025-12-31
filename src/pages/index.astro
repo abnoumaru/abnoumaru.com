@@ -12,7 +12,7 @@ const recentPosts = (await getCollection("blog"))
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <p>abnoumaru's website.</p>
 
-  <h2>recent</h2>
+  <h2>最近の更新</h2>
   <ul class="recent-posts">
     {
       recentPosts.map((post) => (

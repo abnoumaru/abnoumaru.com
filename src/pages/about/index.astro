@@ -2,37 +2,115 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_TITLE } from "../../consts";
 
+const careers = [
+  [
+    "2024/10",
+    "",
+    "株式会社IVRy",
+    "https://ivry.jp/company/",
+  ],
+  [
+    "2020/05",
+    "2024/09",
+    "株式会社スリーシェイク",
+    "https://3-shake.com/",
+  ],
+  [
+    "2016/04",
+    "2020/04",
+    "株式会社ハートビーツ",
+    "https://heartbeats.jp/",
+  ],
+  [
+    "2012/10",
+    "2016/03",
+    "株式会社ハートビーツ",
+    "https://heartbeats.jp/",
+  ],
+];
+
+const educations = [
+  [
+    "2012/04",
+    "2016/03",
+    "国立大学法人電気通信大学",
+    "https://www.uec.ac.jp/",
+  ],
+];
+
 ---
 
 <BaseLayout title={`About - ${SITE_TITLE}`} description="About abnoumaru">
+  <h2>自己紹介</h2>
+  <h3>id</h3>
+  <p>abnoumaru(あぶのうまる)</p>
 
-  <h2>about</h2>
-  <h3>Career</h3>
-  <a href="https://www.wantedly.com/id/abnoumaru">https://www.wantedly.com/id/abnoumaru</a>
-
-  <h3>Contact</h3>
-  <p>me [at] abnoumaru [dot] com</p>
-
-  <h3>Icon</h3>
+  <h3>アイコン</h3>
   <div class="icon-gallery">
     <img src="/icon/abnoumaru.jpg" alt="abnoumaru" />
     <img src="/icon/abnoumaru-public.jpg" alt="abnoumaru public" />
     <img src="/icon/abnoumaru-photo-of-the-author.webp" alt="abnoumaru photo of the author" />
     <img src="/icon/abnoumaru-omoide.webp" alt="abnoumaru omoide" />
   </div>
+
+  <h3>職歴</h3>
+  {
+    careers.map((career) => (
+      <div class="history-item">
+        <span class="period">{career[0]} - {career[1] || "現在"}</span>
+        <a href={career[3]} target="_blank">{career[2]}</a>
+      </div>
+    ))
+  }
+
+  <h3>学歴</h3>
+  {
+    educations.map((education) => (
+      <div class="history-item">
+        <span class="period">{education[0]} - {education[1]}</span>
+        <a href={education[3]} target="_blank">{education[2]}</a>
+      </div>
+    ))
+  }
+
+  <h3>連絡先</h3>
+  <p>me [at] abnoumaru [dot] com</p>
+
 </BaseLayout>
 
 <style>
+  .bio {
+    font-style: italic;
+    color: #555;
+    margin: 1.5rem 0 0 0;
+    text-align: left;
+  }
+  .lyric-source {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: left;
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
   .icon-gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
   }
-
   .icon-gallery img {
     width: 100px;
     height: 100px;
     object-fit: cover;
+  }
+  .history-item {
+    display: flex;
+    margin-bottom: 0.25rem;
+  }
+  .history-item .period {
+    color: #888;
+    width: 10rem;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
   }
 </style>
