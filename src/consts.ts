@@ -8,7 +8,7 @@
  */
 export const SITE = {
   title: "abnoumaru.com",
-  description: "Welcome to my website!",
+  description: "abnoumaruのウェブサイト。日常系。",
   url: "https://abnoumaru.com",
   author: "abnoumaru",
 } as const;

@@ -52,6 +52,25 @@ const allowIndex = Astro.url?.pathname === "/";
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <meta property="twitter:creator" content={SOCIAL.twitter.handle} />
 
+<!-- JSON-LD 構造化データ（ホームページのみ） -->
+{allowIndex && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": SITE.title,
+    "url": SITE.url,
+    "description": description,
+    "author": {
+      "@type": "Person",
+      "name": SITE.author,
+      "url": SITE.url
+    }
+  })} />
+)}
+
+<!-- RSS フィードリンク -->
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed" />
+
 <!-- Google tag (gtag.js) - パーティータウンで最適化済み -->
 {ANALYTICS.googleAnalytics.enabled && (
   [
