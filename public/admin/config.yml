@@ -1,0 +1,98 @@
+backend:
+  name: github
+  repo: abnoumaru/abnoumaru.com
+  branch: main
+  base_url: https://abnoumaru.com
+  auth_endpoint: api/auth
+
+site_url: https://abnoumaru.com
+display_url: https://abnoumaru.com
+
+media_folder: public/uploads
+public_folder: /uploads
+
+locale: ja
+
+slug:
+  encoding: unicode
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: blog
+    label: ブログ記事
+    label_singular: 記事
+    folder: src/content/blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}"
+    extension: md
+    format: frontmatter
+    sortable_fields:
+      - pubDate
+      - title
+    view_filters:
+      - label: 技術記事
+        field: isTech
+        pattern: true
+      - label: 日常記事
+        field: isTech
+        pattern: false
+    fields:
+      - label: タイトル
+        name: title
+        widget: string
+        required: true
+
+      - label: 説明文
+        name: description
+        widget: string
+        required: true
+        hint: "記事の短い説明（空でもOK）"
+
+      - label: 公開日
+        name: pubDate
+        widget: datetime
+        format: "MMM DD YYYY"
+        date_format: "MMM DD YYYY"
+        time_format: false
+        required: true
+
+      - label: 更新日
+        name: updatedDate
+        widget: datetime
+        format: "MMM DD YYYY"
+        date_format: "MMM DD YYYY"
+        time_format: false
+        required: false
+
+      - label: ヒーロー画像
+        name: heroImage
+        widget: image
+        required: false
+        allow_multiple: false
+        hint: "記事のヘッダー画像"
+
+      - label: タグ
+        name: tags
+        widget: list
+        default:
+          - default
+        allow_add: true
+        hint: "タグを追加"
+
+      - label: 技術記事
+        name: isTech
+        widget: boolean
+        default: false
+        hint: "技術系の記事の場合はON"
+
+      - label: カスタムパス
+        name: path
+        widget: string
+        required: false
+        hint: "カスタムURLパス（通常は空）"
+
+      - label: 本文
+        name: body
+        widget: markdown
+        required: true
