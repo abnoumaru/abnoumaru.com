@@ -3,40 +3,85 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_TITLE } from "../../consts";
 import { Icon } from "astro-icon/components";
 
-const careers = [
-  [
-    "2024/10",
-    "",
-    "株式会社IVRy",
-    "https://ivry.jp/company/",
-  ],
-  [
-    "2020/05",
-    "2024/09",
-    "株式会社スリーシェイク",
-    "https://3-shake.com/",
-  ],
-  [
-    "2016/04",
-    "2020/04",
-    "株式会社ハートビーツ",
-    "https://heartbeats.jp/",
-  ],
-  [
-    "2012/10",
-    "2016/03",
-    "株式会社ハートビーツ",
-    "https://heartbeats.jp/",
-  ],
-];
+interface Position {
+  startDate: string;
+  endDate?: string;
+  team: string;
+  titles: string[];
+}
 
-const educations = [
-  [
-    "2012/04",
-    "2016/03",
-    "国立大学法人電気通信大学",
-    "https://www.uec.ac.jp/",
-  ],
+interface Career {
+  company: string;
+  url: string;
+  positions: Position[];
+}
+
+const careers: Career[] = [
+  {
+    company: "株式会社IVRy",
+    url: "https://ivry.jp/company/",
+    positions: [
+      {
+        startDate: "2026/01",
+        team: "SRE Unit, Platform & Infrastructure Group",
+        titles: ["Engineering Manager(SRE)"],
+      },
+      {
+        startDate: "2024/10",
+        endDate: "2025/12",
+        team: "Platform Circle",
+        titles: ["Software Engineer(SRE)","Team Lead(SRE)"],
+      },
+    ],
+  },
+  {
+    company: "株式会社スリーシェイク",
+    url: "https://3-shake.com/",
+    positions: [
+      {
+        startDate: "2021/08",
+        endDate: "2024/09",
+        team: "Sreake事業部",
+        titles: ["Group Lead(SRE Consulting / Support)"],
+      },
+      {
+        startDate: "2020/05",
+        endDate: "2021/07",
+        team: "Sreake事業部",
+        titles: ["IT Infrastructure Engineer(SRE Consulting / Support)"],
+      },
+    ],
+  },
+  {
+    company: "株式会社ハートビーツ",
+    url: "https://heartbeats.jp/",
+    positions: [
+      {
+        startDate: "2016/04",
+        endDate: "2020/04",
+        team: "MSP事業部",
+        titles: ["Senior Operations Engineer"],
+      },
+      {
+        startDate: "2012/10",
+        endDate: "2016/03",
+        team: "MSP事業部",
+        titles: ["Part-time Operations Engineer","Part-time Senior Operations Engineer"],
+      },
+    ],
+  },
+  {
+    company: "国立大学法人電気通信大学",
+    url: "https://www.uec.ac.jp/",
+    positions: [
+      {
+        startDate: "2012/04",
+        endDate: "2016/03",
+        team: "情報理工学部 総合情報学科",
+        titles: ["セキュリティ情報学コース(学士)"],
+      },
+    ],
+  },
 ];
 
 ---
@@ -54,22 +99,30 @@ const educations = [
     <img src="/icon/abnoumaru-omoide.webp" alt="前々職の旅行で行った好きな写真" />
   </div>
 
-  <h3>職歴</h3>
+  <h3>経歴</h3>
   {
     careers.map((career) => (
-      <div class="history-item">
-        <span class="period">{career[0]} - {career[1] || "現在"}</span>
-        <a href={career[3]} target="_blank">{career[2]}</a>
-      </div>
-    ))
-  }
-
-  <h3>学歴</h3>
-  {
-    educations.map((education) => (
-      <div class="history-item">
-        <span class="period">{education[0]} - {education[1]}</span>
-        <a href={education[3]} target="_blank">{education[2]}</a>
+      <div class="career-block">
+        <div class="company-header">
+          <a href={career.url} target="_blank" rel="noopener noreferrer">
+            {career.company}
+          </a>
+        </div>
+        <div class="positions">
+          {career.positions.map((pos) => (
+            <div class="position-item">
+              <div class="position-header">
+                <span class="position-period">{pos.startDate} - {pos.endDate || "現在"}</span>
+                <span class="position-team">{pos.team}</span>
+              </div>
+              <div class="position-details">
+                {pos.titles.map((title) => (
+                  <div class="detail-row">{title}</div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     ))
   }
@@ -113,15 +166,46 @@ const educations = [
     height: 100px;
     object-fit: cover;
   }
-  .history-item {
-    display: flex;
-    margin-bottom: 0.25rem;
+  .career-block {
+    margin-bottom: 1.5rem;
   }
-  .history-item .period {
-    color: #888;
-    width: 10rem;
-    flex-shrink: 0;
+  .company-header {
+    margin-bottom: 0.5rem;
+  }
+  .company-header a {
+    color: #111;
+    text-decoration: underline;
+  }
+  .positions {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .position-item {
+    display: block;
+  }
+  .position-header {
+    display: flex;
+    gap: 1rem;
+  }
+  .position-period {
+    color: #111;
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    min-width: 10rem;
+    flex-shrink: 0;
+  }
+  .position-team {
+    color: #111;
+  }
+  .position-details {
+    margin-left: calc(10rem + 1rem);
+  }
+  .detail-row {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.125rem;
   }
 
   .contacts {
