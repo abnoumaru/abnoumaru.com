@@ -26,7 +26,7 @@ header h2 a {
 
 .internal-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .internal-links a {
