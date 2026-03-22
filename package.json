@@ -2,6 +2,9 @@
   "name": "abnoumaru-com",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=24.14.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
