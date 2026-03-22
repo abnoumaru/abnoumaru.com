@@ -32,4 +32,7 @@ export default defineConfig({
   compressHTML: true,
   // プリロードの機能を強化
   prefetch: true,
+  experimental: {
+    rustCompiler: true,
+  },
 });

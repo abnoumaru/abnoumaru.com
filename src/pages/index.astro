@@ -20,7 +20,7 @@ const recentPosts = (await getCollection("blog"))
           <span class="post-date">
             <FormattedDate date={post.data.pubDate} />
           </span>
-          <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
         </li>
       ))
     }

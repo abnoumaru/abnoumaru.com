@@ -17,3 +17,6 @@ isTech: false
 EOF
 fi
 '''
+
+[tools]
+node = "25.4.0"
