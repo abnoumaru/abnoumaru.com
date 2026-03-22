@@ -19,7 +19,7 @@ export async function GET(context) {
 				<tags>${post.data.tags?.join(',')}</tags>
 				${post.data.isTech ? '<category>Tech</category>' : ''}
 			`,
-			link: `/blog/${post.slug}/`,
+			link: `/blog/${post.id}/`,
 		})),
 		customData: `<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
 	});
