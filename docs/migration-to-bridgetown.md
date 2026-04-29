@@ -480,7 +480,21 @@ npm pkg delete devDependencies.prettier-plugin-astro
 
 ### Step 11: Cloudflare Pages のビルド設定変更
 
-Cloudflare ダッシュボードまたは `wrangler` で以下に変更する。
+リポジトリ側の準備は完了済み（`.ruby-version=4.0.3`, `Rakefile` に `task default: :deploy`, `package.json` の `build` script, `engines.node >= 24.14.0`）。残りはダッシュボード操作のみ。
+
+#### 11.1 事前 dry-run（ローカル）
+
+ダッシュボード変更前に、Cloudflare と同じビルドコマンドが手元で通ることを確認する。
+
+```bash
+bundle exec bridgetown deploy
+ls output/        # 全ページ + RSS + Sitemap が生成されること
+test -f output/blog/2026-03-08/index.html && echo OK
+```
+
+#### 11.2 Cloudflare Pages ダッシュボード変更
+
+**Settings → Builds & deployments**:
 
 | 設定項目 | 変更前 | 変更後 |
 | --- | --- | --- |
@@ -488,32 +502,42 @@ Cloudflare ダッシュボードまたは `wrangler` で以下に変更する。
 | Build output directory | `dist` | `output` |
 | Root directory | `/` | `/`（変更なし） |
 
-リポジトリ直下に `.ruby-version` を追加する:
+**Settings → Environment variables**（Production / Preview 両方に設定）:
 
-```
-4.0.3
-```
-
-> Cloudflare Pages の v3 ビルドシステムは Ruby 3.4.4 / Bundler 2.6.9 がデフォルト、v2 は Ruby 3.2.2 がデフォルト。`.ruby-version` または環境変数 `RUBY_VERSION` で任意のバージョンに切り替えられる。Ruby 4.0.3 はデフォルトより新しいため、ビルドイメージで利用可能か事前に Cloudflare Pages のビルドログで確認すること（未対応の場合は v3 ビルドシステムへの切替やビルド時インストールの手当てが必要）。`Gemfile` を検出すると `bundle install` が自動実行される。
-
-環境変数設定:
-
-| 変数名 | 値 | スコープ |
+| 変数名 | 値 | 備考 |
 | --- | --- | --- |
-| `BRIDGETOWN_ENV` | `production` | Production / Preview |
-| `RUBY_VERSION` | `4.0.3` | （`.ruby-version` で代替するなら不要） |
-| `NODE_VERSION` | `22.21.0` 以上 | Production / Preview |
+| `BRIDGETOWN_ENV` | `production` | 必須 |
+| `NODE_VERSION` | `24.14.0` | `package.json` の `engines.node >=24.14.0` に整合させる |
+| `RUBY_VERSION` | `4.0.3` | `.ruby-version` を読ませるなら省略可 |
 
-ビルド実行順:
+#### 11.3 Ruby バージョン互換性の確認（重要）
 
-1. Cloudflare Pages がリポジトリを clone
-2. `.ruby-version` を読んで Ruby を準備
-3. `Gemfile` を検出し `bundle install`
-4. `package.json` を検出し `npm install`
-5. `bundle exec bridgetown deploy` を実行（内部で `frontend` の esbuild バンドル → 静的サイト生成）
-6. `output/` の中身を Cloudflare Pages にデプロイ
+> Cloudflare Pages v3 ビルドシステムは Ruby 3.4.4 / Bundler 2.6.9 がデフォルト、v2 は Ruby 3.2.2。Ruby 4.0.3 はデフォルトより新しいため、ビルドイメージで利用可能か未検証。
 
-プレビューデプロイ（PR 単位）も同設定で動くこと、Functions / Workers は使用しないことを確認する。
+最初の Preview デプロイ時にビルドログで `ruby --version` の行を確認する。利用不可だった場合の対処:
+
+- (a) `.ruby-version` を Cloudflare サポート版（例: `3.4.4`）にダウングレード → `bundle install` で `Gemfile.lock` を更新
+- (b) Pages → Settings → Build → Build system version を最新（v3）に切替
+- (c) Custom build image を指定（最終手段）
+
+#### 11.4 デプロイトリガーと検証
+
+1. `migration/bridgetown` ブランチで PR 作成 → Cloudflare の Preview deploy が走る
+2. ビルドログで以下が順に成功することを確認:
+   - `.ruby-version` 検出 → Ruby `4.0.3` セットアップ
+   - `bundle install`
+   - `npm install`
+   - `bundle exec bridgetown deploy`（内部で `frontend:build` → `Bridgetown::Commands::Build`）
+   - `output/` のデプロイ
+3. プレビュー URL で `/`, `/blog/`, `/blog/2026-03-08/`, `/about/`, `/links/`, `/no-smoking/`, `/404.html`, `/rss.xml`, `/sitemap.xml`, `/robots.txt` を踏破
+4. OGP / GA / Giscus / シェアボタン / フッタ git hash の動作を確認
+5. Functions / Workers が呼ばれていないことを Deployments のログで確認
+
+#### 11.5 ロールバック
+
+- Preview 失敗時: ダッシュボードで Build command / output directory を旧値（`npm run build` / `dist`）に戻す。PR を merge していなければ即座に Astro 版に復帰
+- 本番 merge 後の障害時: Cloudflare Pages → Deployments → 直前デプロイの "Rollback to this deployment"
+- コード側は `pre-bridgetown-migration` タグから hotfix 可能（§7 参照）
 
 ---
 
