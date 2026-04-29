@@ -37,7 +37,7 @@ layout: default
                 end
         %>
         <a href="<%= url %>" target="_blank" rel="noopener" aria-label="<%= button.aria_label %>" class="share-button <%= button.name %>-button">
-          <%= button.name %>
+          <%= svg_icon(button.icon) %>
         </a>
       <% end %>
     </div>
