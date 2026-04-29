@@ -13,11 +13,6 @@ layout: default
     <div class="title">
       <div class="date">
         <%= render "format_date", date: data.date %>
-        <% if data.last_modified_at %>
-          <div class="last-updated-on">
-            最終更新日: <%= render "format_date", date: data.last_modified_at %>
-          </div>
-        <% end %>
       </div>
       <h1><%= data.title %></h1>
       <hr>
