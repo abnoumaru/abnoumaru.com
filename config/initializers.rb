@@ -112,4 +112,9 @@ Bridgetown.configure do |config|
   init :"bridgetown-feed"
   init :"bridgetown-seo-tag"
   init :"bridgetown-sitemap"
+
+  # Use /rss.xml path so existing subscribers from the Astro site keep working.
+  feed do
+    path "rss.xml"
+  end
 end
