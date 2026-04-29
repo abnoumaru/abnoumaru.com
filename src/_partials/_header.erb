@@ -1,0 +1,27 @@
+<% current_path = resource&.relative_url || "/" %>
+<header>
+  <nav>
+    <h2><a href="/"><%= site.metadata.title %></a></h2>
+    <div class="internal-links" id="menu">
+      <%
+        nav_links = [
+          { label: "home", href: "/" },
+          { label: "blog", href: "/blog/" },
+          { label: "about", href: "/about/" },
+          { label: "links", href: "/links/" },
+        ]
+      %>
+      <% nav_links.each do |link| %>
+        <%
+          is_active = if link[:href] == "/"
+                        current_path == "/"
+                      else
+                        current_path.start_with?(link[:href])
+                      end
+        %>
+        <a href="<%= link[:href] %>" class="<%= "active" if is_active %>"><%= link[:label] %></a>
+      <% end %>
+    </div>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>

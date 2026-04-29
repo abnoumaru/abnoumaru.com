@@ -2,6 +2,46 @@
 layout: default
 ---
 
-<h1><%= data.title %></h1>
+<article class="blog-post">
+  <% if data.heroImage %>
+    <div class="hero-image">
+      <img width="1020" height="510" src="<%= data.heroImage %>" alt="<%= data.title %>" loading="lazy" decoding="async">
+    </div>
+  <% end %>
 
-<%= yield %>
+  <div class="prose">
+    <div class="title">
+      <div class="date">
+        <%= render "format_date", date: data.date %>
+        <% if data.last_modified_at %>
+          <div class="last-updated-on">
+            最終更新日: <%= render "format_date", date: data.last_modified_at %>
+          </div>
+        <% end %>
+      </div>
+      <h1><%= data.title %></h1>
+      <hr>
+    </div>
+
+    <%= yield %>
+
+    <div class="share-buttons">
+      <% page_url = absolute_url(resource.relative_url) %>
+      <% encoded_url = CGI.escape(page_url) %>
+      <% encoded_title = CGI.escape(data.title.to_s) %>
+      <% Array(site.metadata.share_buttons).each do |button| %>
+        <%
+          url = case button.name
+                when "hatena" then "#{button.base_url}#{page_url}"
+                when "x" then "#{button.base_url}?url=#{encoded_url}&text=#{encoded_title}"
+                end
+        %>
+        <a href="<%= url %>" target="_blank" rel="noopener" aria-label="<%= button.aria_label %>" class="share-button <%= button.name %>-button">
+          <%= button.name %>
+        </a>
+      <% end %>
+    </div>
+
+    <%= render "comment" %>
+  </div>
+</article>

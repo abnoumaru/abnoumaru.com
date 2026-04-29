@@ -1,9 +1,41 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<% resource_title = strip_html(strip_newlines(title)) %>
-<title><% if resource_title != "Index" %><%= resource_title %> | <%= metadata.title %><% else %><%= metadata.title %>: <%= metadata.tagline %><% end %></title>
+<meta name="theme-color" content="#111827" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🥙</text></svg>" />
 
-<meta name="description" content="<%= metadata.description %>" />
+<%= seo %>
+
+<% if resource&.relative_url == "/" %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": <%= raw(site.metadata.title.to_json) %>,
+    "url": <%= raw(site.metadata.url.to_json) %>,
+    "description": <%= raw(site.metadata.description.to_json) %>,
+    "author": {
+      "@type": "Person",
+      "name": <%= raw(site.metadata.author.to_json) %>,
+      "url": <%= raw(site.metadata.url.to_json) %>
+    }
+  }
+  </script>
+<% else %>
+  <meta name="robots" content="noindex, nofollow" />
+<% end %>
+
+<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="<%= site.metadata.title %>" />
+
+<% if site.metadata.analytics&.dig(:google_analytics, :enabled) %>
+  <% ga_id = site.metadata.analytics.google_analytics.id %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ga_id %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '<%= ga_id %>');
+  </script>
+<% end %>
 
 <link rel="stylesheet" href="<%= asset_path :css %>" />
 <script src="<%= asset_path :js %>" defer></script>
