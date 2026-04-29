@@ -22,6 +22,7 @@
     "postcss-load-config": "^6.0.1",
     "postcss-preset-env": "^10.4.0",
     "read-cache": "^1.0.0",
+    "simple-icons": "^16.18.0",
     "textlint": "^14.0.3",
     "textlint-rule-preset-ja-technical-writing": "^10.0.1"
   }

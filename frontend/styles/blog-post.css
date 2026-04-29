@@ -54,3 +54,29 @@ body.post .last-updated-on {
     padding: 0.5em;
   }
 }
+
+/* シェアボタン */
+body.post .share-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(var(--gray-light), 0.2);
+  border-bottom: 1px solid rgba(var(--gray-light), 0.2);
+}
+
+body.post .share-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  border: none;
+  background: none;
+}
+
+body.post .share-button:hover {
+  color: #111;
+  border: none;
+}
