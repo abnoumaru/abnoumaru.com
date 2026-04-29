@@ -1,0 +1,75 @@
+/* ブログ記事ページのスタイル (body.post でスコープ) */
+body.post main {
+  width: calc(100% - 2em);
+  max-width: 100%;
+  margin: 0;
+}
+
+body.post .hero-image {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+body.post .hero-image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+  width: auto;
+  height: auto;
+  max-height: 500px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.post .prose {
+  width: 720px;
+  max-width: calc(100% - 2em);
+  margin: auto;
+  padding: 1em;
+}
+
+body.post .title {
+  margin-bottom: 1em;
+  padding: 1em 0;
+  text-align: center;
+  line-height: 1;
+}
+
+body.post .title h1 {
+  margin: 0 0 0.5em 0;
+}
+
+body.post .date {
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 720px) {
+  body.post .prose {
+    width: 100%;
+    padding: 0.5em;
+  }
+}
+
+/* シェアボタン */
+body.post .share-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+body.post .share-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  border: none;
+  background: none;
+}
+
+body.post .share-button:hover {
+  color: #111;
+  border: none;
+}
