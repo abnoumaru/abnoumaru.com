@@ -30,6 +30,7 @@ header h2 a {
 }
 
 .internal-links a {
+    display: inline-block;
     color: #111;
     text-decoration: none;
     padding: 0.5rem 0;
@@ -39,6 +40,11 @@ header h2 a {
 .internal-links a:hover {
     color: #111; /* Darken on hover */
     border-bottom-color: #111; /* Simple border highlight */
+}
+
+.internal-links a.active {
+    font-weight: bolder;
+    text-decoration: underline;
 }
 
 .menu-toggle {
