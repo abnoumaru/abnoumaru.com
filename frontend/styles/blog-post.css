@@ -1,63 +1,56 @@
-/* ブログ記事ページのスタイル */
-main {
+/* ブログ記事ページのスタイル (body.post でスコープ) */
+body.post main {
   width: calc(100% - 2em);
   max-width: 100%;
   margin: 0;
 }
 
-.hero-image {
+body.post .hero-image {
   width: 100%;
-  margin-bottom: 2rem; /* Add some space below */
+  margin-bottom: 2rem;
 }
 
-.hero-image img {
+body.post .hero-image img {
   display: block;
-  margin: 0 auto; /* This will center the block-level image */
-  max-width: 80%; /* Make the image smaller than the container */
+  margin: 0 auto;
+  max-width: 80%;
   width: auto;
   height: auto;
-  max-height: 500px; /* Also add a max-height to prevent very tall images from dominating */
+  max-height: 500px;
   border-radius: 0;
   box-shadow: none;
 }
 
-.prose {
+body.post .prose {
   width: 720px;
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 1em;
 }
 
-.title {
+body.post .title {
   margin-bottom: 1em;
   padding: 1em 0;
   text-align: center;
   line-height: 1;
 }
 
-.title h1 {
+body.post .title h1 {
   margin: 0 0 0.5em 0;
 }
 
-.date {
+body.post .date {
   margin-bottom: 0.5em;
   color: rgb(var(--gray-light));
 }
 
-.last-updated-on {
+body.post .last-updated-on {
   font-style: italic;
 }
 
-/* 画像の最適化 */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* レスポンシブデザイン改善 */
 @media (max-width: 720px) {
-  .prose {
+  body.post .prose {
     width: 100%;
     padding: 0.5em;
   }
-} 
+}
