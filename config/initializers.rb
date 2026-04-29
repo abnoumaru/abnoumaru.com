@@ -21,6 +21,7 @@ Bridgetown.configure do |config|
   # Localization (the site is written in Japanese)
   available_locales [:ja, :en]
   default_locale :ja
+  lang "ja_JP"
 
   # Available options are `erb` (default), `serbea`, or `liquid`
   template_engine "erb"

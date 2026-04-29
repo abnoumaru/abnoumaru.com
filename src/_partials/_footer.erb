@@ -1,3 +1,9 @@
 <footer>
-  Contact me at <a href="mailto:<%= metadata.email %>"><%= metadata.email %></a>
+  <div class="footer-text">
+    <p>
+      Built with <a href="https://www.bridgetownrb.com/" target="_blank" rel="noopener noreferrer">Bridgetown</a>.
+      Analytics by <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">Cloudflare Web Analytics</a>.
+    </p>
+    <p>&copy; <%= Time.now.year %> abnoumaru / commit hash: <%= site.config[:git_commit_hash] || "unknown" %></p>
+  </div>
 </footer>
