@@ -1,11 +1,32 @@
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.metadata.title }}, {{ site.metadata.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.metadata.myvariable }}.
+# Site settings used for SEO meta tags, feed.xml, sitemap.xml, and templates.
+# Accessed in templates via `site.metadata.<key>` (e.g. `site.metadata.title`).
 
-title: Your awesome title
-tagline: This site is totally awesome
-email: your-email@example.com
-description: >-
-  Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+title: abnoumaru.com
+tagline: ""
+description: abnoumaruのウェブサイト。日常系。
+url: https://abnoumaru.com
+author: abnoumaru
+locale: ja
+
+social:
+  twitter:
+    handle: "@abnoumaru"
+    url: https://x.com/abnoumaru
+  github:
+    handle: abnoumaru
+    url: https://github.com/abnoumaru
+
+analytics:
+  google_analytics:
+    id: G-1FX49E22DX
+    enabled: true
+
+share_buttons:
+  - name: hatena
+    base_url: https://b.hatena.ne.jp/entry/
+    aria_label: はてなブックマークでシェア
+    icon: hatenabookmark
+  - name: x
+    base_url: https://x.com/intent/tweet
+    aria_label: Xでシェア
+    icon: x
