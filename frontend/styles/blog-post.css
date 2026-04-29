@@ -41,11 +41,6 @@ body.post .title h1 {
 
 body.post .date {
   margin-bottom: 0.5em;
-  color: rgb(var(--gray-light));
-}
-
-body.post .last-updated-on {
-  font-style: italic;
 }
 
 @media (max-width: 720px) {
@@ -63,8 +58,6 @@ body.post .share-buttons {
   gap: 1rem;
   margin: 2rem 0;
   padding: 1rem 0;
-  border-top: 1px solid rgba(var(--gray-light), 0.2);
-  border-bottom: 1px solid rgba(var(--gray-light), 0.2);
 }
 
 body.post .share-button {

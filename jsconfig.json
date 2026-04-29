@@ -3,8 +3,7 @@
     "baseUrl": ".",
     "paths": {
         "$styles/*": ["./frontend/styles/*"],
-        "$javascript/*": ["./frontend/javascript/*"],
-        "$components/*": ["./src/_components/*"]
+        "$javascript/*": ["./frontend/javascript/*"]
     }
   },
 }
