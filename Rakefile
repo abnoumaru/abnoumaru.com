@@ -5,9 +5,6 @@ Bridgetown.load_tasks
 # Run rake without specifying any command to execute a deploy build by default.
 task default: :deploy
 
-#
-# Standard set of tasks, which you can customize if you wish:
-#
 desc "Build the Bridgetown site for deployment"
 task :deploy => [:clean, "frontend:build"] do
   Bridgetown::Commands::Build.start
@@ -36,14 +33,3 @@ namespace :frontend do
   rescue Interrupt
   end
 end
-
-#
-# Add your own Rake tasks here! You can use `environment` as a prerequisite
-# in order to write automations or other commands requiring a loaded site.
-#
-# task :my_task => :environment do
-#   puts site.root_dir
-#   automation do
-#     say_status :rake, "I'm a Rake tast =) #{site.config.url}"
-#   end
-# end
