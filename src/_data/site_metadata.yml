@@ -1,0 +1,31 @@
+# Site settings used for SEO meta tags, feed.xml, sitemap.xml, and templates.
+# Accessed in templates via `site.metadata.<key>` (e.g. `site.metadata.title`).
+
+title: abnoumaru.com
+tagline: ""
+description: abnoumaruのウェブサイト。日常系。
+url: https://abnoumaru.com
+author: abnoumaru
+
+social:
+  twitter:
+    handle: "@abnoumaru"
+    url: https://x.com/abnoumaru
+  github:
+    handle: abnoumaru
+    url: https://github.com/abnoumaru
+
+analytics:
+  google_analytics:
+    id: G-1FX49E22DX
+    enabled: true
+
+share_buttons:
+  - name: hatena
+    base_url: https://b.hatena.ne.jp/entry/
+    aria_label: はてなブックマークでシェア
+    icon: hatenabookmark
+  - name: x
+    base_url: https://x.com/intent/tweet
+    aria_label: Xでシェア
+    icon: x

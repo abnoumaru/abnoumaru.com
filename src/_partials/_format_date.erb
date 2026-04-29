@@ -1,0 +1,2 @@
+<% d = date.is_a?(String) ? Date.parse(date) : date.to_date %>
+<time datetime="<%= d.strftime("%Y-%m-%d") %>" class="formatted-date"><%= d.strftime("%Y-%m-%d") %></time>
