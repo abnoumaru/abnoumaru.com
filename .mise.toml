@@ -1,22 +1,2 @@
-[tasks.new]
-description = "Create a new blog post for today's date"
-run = '''
-FILE_PATH="src/content/blog/$(date +%Y-%m-%d).md"
-if [ -f "$FILE_PATH" ]; then
-  echo "File already exists: $FILE_PATH" >&2
-  exit 1
-else
-  cat <<EOF > "$FILE_PATH"
----
-title: ""
-description: ""
-pubDate: "$(date +"%b %d %Y")"
-tags: []
-isTech: false
----
-EOF
-fi
-'''
-
 [tools]
 node = "24.14.0"
