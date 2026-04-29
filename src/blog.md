@@ -1,14 +1,12 @@
 ---
 layout: default
-title: home
-permalink: /
+title: blog
+permalink: /blog/
 ---
 
-<p>abnoumaru's website.</p>
-
-<h2>最近の更新</h2>
-<ul class="recent-posts">
-<% collections.posts.resources.sort_by { |p| p.data.date }.reverse.first(5).each do |post| %>
+<h2>ブログ</h2>
+<ul class="simple-post-list">
+<% collections.posts.resources.sort_by { |p| p.data.date }.reverse.each do |post| %>
   <li>
     <span class="post-date">
       <%= render "format_date", date: post.data.date %>
