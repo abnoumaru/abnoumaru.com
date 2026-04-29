@@ -26,6 +26,9 @@
 | 投稿コレクション | 標準の `posts` を使用、`src/_posts/` に配置 |
 | 記事ファイル名 | `YYYY-MM-DD-post.md`（Bridgetown は `YYYY-MM-DD-<title>.md` 形式を要求するため、suffix `-post` を機械的に付与） |
 | Permalink | フロントマターに `permalink: /blog/YYYY-MM-DD/` を記載して URL を固定 |
+| 設定ファイル | `bridgetown.config.yml` は使わず、`config/initializers.rb` の Ruby DSL に統一（v2 標準） |
+| `bin/bridgetown` | `bundle binstubs bridgetown-core` で生成された Ruby binstub を採用（手書きしない） |
+| ページ配置 | `src/_pages/` ではなく `src/` 直下（`src/index.md`, `src/posts.md`, `src/about.md`, `src/404.html`, `src/500.html`）に置く |
 | グローバル定数 | `src/consts.ts` を `src/_data/site_metadata.yml` に移行 |
 | 静的アセット | 既存の絶対パス `/YYYY-MM-DD/foo.jpg` を維持するため、`static/` ディレクトリ（または `src/images/` 直下）に同一構造で配置 |
 | 主要プラグイン | `bridgetown-feed`（RSS）、`bridgetown-sitemap`、`bridgetown-seo-tag` |
@@ -52,14 +55,15 @@
 
 | 領域 | Astro 現状 | Bridgetown 移行先 |
 | --- | --- | --- |
-| ビルドツール | `astro build` | `bundle exec bridgetown build` |
+| ビルドツール | `astro build` | `bin/bridgetown deploy`（Rakefile 経由で esbuild + 静的サイト生成） |
 | 開発サーバ | `astro dev`（:4321） | `bin/bridgetown start`（:4000） |
 | 型チェック | `astro check` | （なし。Ruby のため不要） |
 | コンテンツ | `src/content/blog/*.md` | `src/_posts/*.md` |
-| コレクション定義 | `src/content.config.ts`（Zod） | `bridgetown.config.yml` の `collections:` |
+| コレクション定義 | `src/content.config.ts`（Zod） | `config/initializers.rb` の `collections.posts.permalink` |
 | レイアウト | `src/layouts/*.astro` | `src/_layouts/*.erb` |
-| コンポーネント | `src/components/*.astro` | `src/_components/*.erb`（必要なら Ruby Component） |
-| ページ | `src/pages/**/*.astro` | `src/_pages/**/*.{md,erb}` |
+| コンポーネント | `src/components/*.astro` | `src/_components/*.erb`（必要なら Ruby Component sidecar `.rb`） |
+| ページ | `src/pages/**/*.astro` | `src/**/*.{md,erb,html}`（`src/` 直下、`_*` プレフィックス除く） |
+| Partials | （Astro コンポーネント） | `src/_partials/*.erb`（`<%= render "name" %>` で呼び出し） |
 | 動的ルート | `[...slug].astro` | `posts` コレクション + `permalink` |
 | RSS | `src/pages/rss.xml.js`（`@astrojs/rss`） | `bridgetown-feed`（必要に応じてテンプレ上書き） |
 | Sitemap | `@astrojs/sitemap` (homepage only filter) | `bridgetown-sitemap` + 個別ページに `sitemap: false` |
@@ -106,72 +110,89 @@
 
 各ステップは独立したコミット単位を想定する。Tidy First に従い、構造変更（ディレクトリ・依存追加）と振る舞い変更（コンテンツ・テンプレート移植）は別コミットに分ける。
 
-### Step 1: Bridgetown 並行構成の準備（構造変更）
+### Step 1: Bridgetown 雛形の取り込み（構造変更）
 
-リポジトリ直下に Bridgetown の標準ディレクトリを新設する。Astro の既存ファイルはこの段階では削除しない。
+実装方針として、Bridgetown が要求するボイラープレート（`Rakefile`, `config.ru`, `esbuild.config.js`, `postcss.config.js`, `jsconfig.json`, `config/{esbuild.defaults.js,puma.rb,initializers.rb}`, `frontend/javascript/index.js`, `frontend/styles/{index,syntax-highlighting}.css`, `plugins/{site_builder.rb,builders/.keep}`, `server/{roda_app.rb,routes/hello.rb.sample}`, `src/_layouts/{default,page,post}.erb`, `src/_partials/{_head,_footer}.erb`, `src/_components/shared/{navbar.erb,navbar.rb}`, `src/_data/site_metadata.yml`, `src/{index,posts,about}.md`, `src/{404,500}.html`, `src/favicon.ico`, `src/images/logo.svg`, `tmp/pids/.keep`）を手書きせず、`bridgetown new` の出力を rsync で取り込む。
+
+#### 1.1 雛形を一時ディレクトリに生成
 
 ```bash
-mkdir -p bin config frontend/javascript frontend/styles plugins/builders \
-         src/_posts src/_layouts src/_components src/_pages src/_data src/images
+SKEL=$(mktemp -d -t bridgetown-skel-XXXXXX)
+gem install bridgetown -v 2.1.2 --no-document   # 既にインストール済みならスキップ可
+bridgetown new "$SKEL/skel" --templates erb --skip-bundle --skip-npm
 ```
 
-`Gemfile` を新規作成:
+#### 1.2 rsync で雛形をプロジェクトへ取り込み
+
+merge が必要なファイル（`.gitignore`, `package.json`, `Gemfile`, `README.md`, `.ruby-version`）は exclude してコピーする。
+
+```bash
+rsync -av \
+  --exclude='.git/' \
+  --exclude='.gitignore' \
+  --exclude='package.json' \
+  --exclude='Gemfile' \
+  --exclude='README.md' \
+  --exclude='.ruby-version' \
+  "$SKEL/skel/" ./
+```
+
+#### 1.3 `Gemfile` を作成（雛形ベース + プラグイン3つ）
+
+雛形の `Gemfile` をコピーし、末尾に Bridgetown プラグイン 3 つを追記する。`puma` は雛形どおり `< 8` のまま。Ruby バージョンは `.ruby-version`（`4.0.3`）で管理するので Gemfile では指定しない。
 
 ```ruby
-source "https://rubygems.org"
-
-ruby "4.0.3"
-
 gem "bridgetown", "~> 2.1.2"
-gem "bridgetown-feed"
-gem "bridgetown-sitemap"
-gem "bridgetown-seo-tag"
-
-group :development do
-  gem "puma"
-end
+gem "puma", "< 8"
+gem "bridgetown-feed", "~> 4.0"
+gem "bridgetown-seo-tag", "~> 7.0"
+gem "bridgetown-sitemap", "~> 3.0"
 ```
+
+#### 1.4 `.gitignore` を merge
+
+雛形の `.gitignore`（`output`, `.bridgetown-cache`, `.bridgetown-metadata`, `.routes.json`, `node_modules`, `/.bundle`, `.byebug_history`, `.env`, yarn 系, `/tmp/*` 等）に既存 Astro 用エントリ（`dist/`, `.astro/`, `.env.production`, `npm-debug.log*`, `pnpm-debug.log*`）を追記する。`vendor/` も追記。
+
+#### 1.5 `package.json` を merge
+
+既存（Astro）の `dependencies` / `devDependencies` / `scripts` / `engines` を維持しつつ、雛形の `devDependencies`（`esbuild`, `glob`, `postcss`, `postcss-flexbugs-fixes`, `postcss-import`, `postcss-load-config`, `postcss-preset-env`, `read-cache`）と `scripts`（`esbuild`, `esbuild-dev`）を追記。`"private": true` も追加。
+
+#### 1.6 `config/initializers.rb` にプラグイン init を追加
+
+雛形の `config/initializers.rb` 末尾の `end` の直前に以下を追記する。`url`、`permalink`、`timezone` などの abnoumaru 固有設定は Step 2 で書く。
+
+```ruby
+# Bridgetown plugins
+init :"bridgetown-feed"
+init :"bridgetown-seo-tag"
+init :"bridgetown-sitemap"
+```
+
+なお Bridgetown v2 では `bridgetown.config.yml` は使わず、設定はすべてこの `config/initializers.rb` に書く。
+
+#### 1.7 `bundle install` と `bundle binstubs`
 
 ```bash
 bundle install
+bundle binstubs bridgetown-core
 ```
 
-`bin/bridgetown` を `bridgetown new --skip-bundle tmp_site` 等で生成された雛形からコピーする（中身は `bundle exec bridgetown` を呼ぶシェル）。
+- `bundle install` で `Gemfile.lock` が生成される。`vendor/bundle` に gem が入る（`.bundle/config` で `BUNDLE_PATH: "vendor/bundle"` を指定する場合）。
+- `bundle binstubs bridgetown-core` で `bin/bridgetown` および `bin/bt` の Ruby binstub が生成される。手書きしないこと。
 
-`bridgetown.config.yml` を作成:
+#### 1.8 `npm install`
 
-```yaml
-url: https://abnoumaru.com
-title: abnoumaru.com
-description: abnoumaruのウェブサイト。日常系。
-template_engine: erb
-permalink: /blog/:slug/
-timezone: Asia/Tokyo
-
-collections:
-  posts:
-    output: true
-    permalink: /blog/:slug/
-
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
+```bash
+npm install
 ```
 
-`config/initializers.rb` でプラグイン初期化:
+雛形由来の Bridgetown 用 devDependencies がインストールされ、`package-lock.json` が更新される。
 
-```ruby
-Bridgetown.configure do |config|
-  init :"bridgetown-feed"
-  init :"bridgetown-sitemap"
-  init :"bridgetown-seo-tag"
-end
+#### 1.9 動作確認
+
+```bash
+bin/bridgetown --version  # → "bridgetown 2.1.2 ..."
 ```
-
-`package.json` の `dependencies` に esbuild と PostCSS 関連を追記（Bridgetown の標準 `package.json` を参考にする）。Astro 関連の依存はこの段階では残しておく。
 
 ### Step 2: グローバルデータの移行
 
@@ -254,14 +275,18 @@ frontend/styles/
 
 ### Step 5: ページ移植
 
+Bridgetown では `src/` 直下にページファイルを置く（雛形では `src/index.md`, `src/posts.md`, `src/about.md`, `src/404.html`, `src/500.html`）。`src/_pages/` ディレクトリは標準ではない。
+
 | Astro | Bridgetown | 実装メモ |
 | --- | --- | --- |
-| `src/pages/index.astro` | `src/_pages/index.erb` | `collections.posts.resources.first(5)` で最新 5 件 |
-| `src/pages/blog/index.astro` | `src/_pages/blog.erb` | `collections.posts.resources` を `date desc` で全件表示 |
-| `src/pages/about/index.astro` | `src/_pages/about.erb` | `site.data.career` をループ |
-| `src/pages/links/index.astro` | `src/_pages/links.erb` | `site.data.links` をループ |
-| `src/pages/no-smoking/index.astro` | `src/_pages/no-smoking.erb` | 計算 JS は `frontend/javascript/no-smoking.js` に分離 |
-| `src/pages/404.astro` | `src/_pages/404.html` | フロントマターに `permalink: /404.html` を指定 |
+| `src/pages/index.astro` | `src/index.erb` または `src/index.md` | `collections.posts.resources.first(5)` で最新 5 件。雛形の `src/index.md` を上書き |
+| `src/pages/blog/index.astro` | `src/blog.erb` | `collections.posts.resources` を `date desc` で全件表示。雛形の `src/posts.md` を流用してリネーム or 上書き |
+| `src/pages/about/index.astro` | `src/about.erb` | `site.data.career` をループ。雛形の `src/about.md` を上書き |
+| `src/pages/links/index.astro` | `src/links.erb` | `site.data.links` をループ |
+| `src/pages/no-smoking/index.astro` | `src/no-smoking.erb` | 計算 JS は `frontend/javascript/no-smoking.js` に分離 |
+| `src/pages/404.astro` | `src/404.html`（雛形にあり） | フロントマターに `permalink: /404.html` を指定 |
+
+URL を `/about/` のようにディレクトリ末尾スラッシュ形式にしたい場合は、フロントマターに `permalink: /about/` を明記するか、`config/initializers.rb` で `permalink "pretty"` を設定する。
 
 各ページに `bridgetown-seo-tag` 用の `title`、`description`、必要に応じて `image` をフロントマターで設定する。
 
