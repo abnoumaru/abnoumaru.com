@@ -18,6 +18,10 @@ Bridgetown.configure do |config|
   # The base hostname & protocol for your site, e.g. https://example.com
   url "https://abnoumaru.com"
 
+  # Localization (the site is written in Japanese)
+  available_locales [:ja, :en]
+  default_locale :ja
+
   # Available options are `erb` (default), `serbea`, or `liquid`
   template_engine "erb"
 
