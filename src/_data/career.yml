@@ -1,0 +1,56 @@
+- company: 株式会社IVRy
+  url: https://ivry.jp/company/
+  positions:
+    - start_date: "2026/01"
+      team: SRE Unit, Platform & Infrastructure Group
+      titles:
+        - Engineering Manager(SRE)
+    - start_date: "2024/10"
+      end_date: "2025/12"
+      team: Platform Circle
+      titles:
+        - Software Engineer(SRE)
+        - Team Lead(SRE)
+
+- company: 株式会社スリーシェイク
+  url: https://3-shake.com/
+  positions:
+    - start_date: "2021/08"
+      end_date: "2024/09"
+      team: Sreake事業部
+      titles:
+        - Group Lead(SRE Consulting / Support)
+    - start_date: "2020/05"
+      end_date: "2024/09"
+      team: Sreake事業部
+      titles:
+        - IT Infrastructure Engineer(SRE Consulting / Support)
+
+- company: 株式会社ハートビーツ
+  url: https://heartbeats.jp/
+  positions:
+    - start_date: "2017/06"
+      end_date: "2020/04"
+      team: MSP事業部 エンジニアリンググループ
+      titles:
+        - IT Infrastructure Engineer
+    - start_date: "2016/04"
+      end_date: "2017/06"
+      team: MSP事業部 運用グループ
+      titles:
+        - Senior Operations Engineer
+    - start_date: "2012/10"
+      end_date: "2016/03"
+      team: MSP事業部 運用グループ
+      titles:
+        - Part-time Operations Engineer
+        - Part-time Senior Operations Engineer
+
+- company: 国立大学法人電気通信大学
+  url: https://www.uec.ac.jp/
+  positions:
+    - start_date: "2012/04"
+      end_date: "2016/03"
+      team: 情報理工学部 総合情報学科
+      titles:
+        - セキュリティ情報学コース(学士)
