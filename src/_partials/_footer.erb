@@ -1,7 +1,7 @@
 <footer>
   <div class="footer-text">
     <p>
-      Built with <a href="https://www.bridgetownrb.com/" target="_blank" rel="noopener noreferrer">Bridgetown</a>.
+      Built with <a href="https://www.bridgetownrb.com/" target="_blank" rel="noopener noreferrer">Bridgetown v<%= Bridgetown::VERSION %> (codename "<%= Bridgetown::CODE_NAME %>")</a> on Ruby <%= RUBY_VERSION %>.
       Analytics by <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">Cloudflare Web Analytics</a>.
     </p>
     <p>&copy; <%= Time.now.year %> abnoumaru / commit hash: <%= site.config[:git_commit_hash] || "unknown" %></p>
