@@ -36,7 +36,6 @@ gem "puma", "< 8"
 
 # Bridgetown plugins
 gem "bridgetown-feed", "~> 4.0"
-gem "bridgetown-seo-tag", "~> 7.0"
 gem "bridgetown-sitemap", "~> 3.0"
 
 # Uncomment to use the Inspectors API to manipulate the output
