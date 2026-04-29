@@ -1,0 +1,25 @@
+.social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 0.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #888;
+  transition: color 0.2s ease;
+  font-size: 1rem;
+}
+
+.social-links a:hover {
+  color: #111;
+}
+
+.social-links a svg {
+  width: 1em;
+  height: 1em;
+}
