@@ -1,4 +1,3 @@
 [tools]
-node = "24.14.0"
 hk = "latest"
 pkl = "latest"
