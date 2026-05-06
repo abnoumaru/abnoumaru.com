@@ -24,6 +24,10 @@
     {
       "matchDepNames": ["ruby"],
       "groupName": "weekly ruby runtime"
+    },
+    {
+      "matchPackageNames": ["jdx/hk"],
+      "groupName": "weekly hk"
     }
   ],
   "customManagers": [
@@ -42,6 +46,16 @@
       "depNameTemplate": "ruby",
       "datasourceTemplate": "ruby-version",
       "versioningTemplate": "ruby"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)hk\\.pkl$"],
+      "matchStrings": [
+        "v(?<currentValue>\\d+\\.\\d+\\.\\d+)/hk@",
+        "hk@(?<currentValue>\\d+\\.\\d+\\.\\d+)#"
+      ],
+      "depNameTemplate": "jdx/hk",
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
