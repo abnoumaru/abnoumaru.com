@@ -24,12 +24,12 @@ end
 namespace :frontend do
   desc "Build the frontend with esbuild for deployment"
   task :build do
-    sh "npm run esbuild"
+    sh "node esbuild.config.js --minify"
   end
 
   desc "Watch the frontend with esbuild during development"
   task :dev do
-    sh "npm run esbuild-dev"
+    sh "node esbuild.config.js --watch"
   rescue Interrupt
   end
 end

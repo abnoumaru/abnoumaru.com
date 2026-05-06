@@ -6,10 +6,6 @@
   "engines": {
     "node": ">=24.14.0"
   },
-  "scripts": {
-    "esbuild": "node esbuild.config.js --minify",
-    "esbuild-dev": "node esbuild.config.js --watch"
-  },
   "devDependencies": {
     "esbuild": "^0.25.11",
     "glob": "^11.0.3",
