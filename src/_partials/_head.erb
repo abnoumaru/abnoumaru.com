@@ -15,41 +15,41 @@
 
   twitter_handle = site.metadata.social&.twitter&.handle
 %>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>&#x1F959;</text></svg>" />
-<meta name="theme-color" content="#111827" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>&#x1F959;</text></svg>">
+<meta name="theme-color" content="#111827">
 
-<link rel="canonical" href="<%= page_url %>" />
+<link rel="canonical" href="<%= page_url %>">
 
 <title><%= page_title %></title>
-<meta name="title" content="<%= page_title %>" />
-<meta name="description" content="<%= page_description %>" />
-<meta name="author" content="<%= site.metadata.author %>" />
+<meta name="title" content="<%= page_title %>">
+<meta name="description" content="<%= page_description %>">
+<meta name="author" content="<%= site.metadata.author %>">
 <% unless is_home %>
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="robots" content="noindex, nofollow">
 <% end %>
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="<%= page_url %>" />
-<meta property="og:title" content="<%= page_title %>" />
-<meta property="og:description" content="<%= page_description %>" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%= page_url %>">
+<meta property="og:title" content="<%= page_title %>">
+<meta property="og:description" content="<%= page_description %>">
 <% if hero_image_url %>
-  <meta property="og:image" content="<%= hero_image_url %>" />
+  <meta property="og:image" content="<%= hero_image_url %>">
 <% end %>
-<meta property="og:site_name" content="<%= site.metadata.title %>" />
+<meta property="og:site_name" content="<%= site.metadata.title %>">
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="<%= page_url %>" />
-<meta property="twitter:title" content="<%= page_title %>" />
-<meta property="twitter:description" content="<%= page_description %>" />
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="<%= page_url %>">
+<meta property="twitter:title" content="<%= page_title %>">
+<meta property="twitter:description" content="<%= page_description %>">
 <% if hero_image_url %>
-  <meta property="twitter:image" content="<%= hero_image_url %>" />
+  <meta property="twitter:image" content="<%= hero_image_url %>">
 <% end %>
 <% if twitter_handle %>
-  <meta property="twitter:creator" content="<%= twitter_handle %>" />
+  <meta property="twitter:creator" content="<%= twitter_handle %>">
 <% end %>
 
 <% if is_home %>
@@ -69,7 +69,7 @@
   </script>
 <% end %>
 
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed" />
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed">
 
 <% if site.metadata.analytics&.dig(:google_analytics, :enabled) %>
   <% ga_id = site.metadata.analytics.google_analytics.id %>
@@ -78,10 +78,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '<%= ga_id %>');
+    gtag('config', <%= ga_id.to_json %>);
   </script>
 <% end %>
 
-<link rel="stylesheet" href="<%= asset_path :css %>" />
+<link rel="stylesheet" href="<%= asset_path :css %>">
 <script src="<%= asset_path :js %>" defer></script>
 <%= live_reload_dev_js %>
