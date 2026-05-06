@@ -3,9 +3,9 @@ module Builders
   class GitMetadata < SiteBuilder
     def build
       hook(:site, :pre_render) do |site|
-        hash = `git rev-parse --short HEAD 2>/dev/null`.strip
-        hash = "unknown" if hash.empty?
-        site.config[:git_commit_hash] = hash
+        commit_hash = `git rev-parse --short HEAD 2>/dev/null`.strip
+        commit_hash = "unknown" if commit_hash.empty?
+        site.config[:git_commit_hash] = commit_hash
       end
     end
   end
