@@ -11,7 +11,9 @@
     "start": "bin/bridgetown start",
     "build": "bin/bridgetown deploy",
     "esbuild": "node esbuild.config.js --minify",
-    "esbuild-dev": "node esbuild.config.js --watch"
+    "esbuild-dev": "node esbuild.config.js --watch",
+    "lint": "hk check --all",
+    "lint:fix": "hk fix --all"
   },
   "devDependencies": {
     "esbuild": "^0.25.11",
