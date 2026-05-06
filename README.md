@@ -1,11 +1,6 @@
 # abnoumaru.com
 
-Personal blog built with [Bridgetown](https://www.bridgetownrb.com/) and deployed on Cloudflare Pages.
-
-## Requirements
-
-- Ruby 4.0.3 (see `.ruby-version`)
-- Node.js 24.14.0+ (see `package.json` `engines.node`)
+[Bridgetown](https://www.bridgetownrb.com/) で構築している個人ブログ。Cloudflare Pages にデプロイされる。
 
 ## Setup
 
@@ -18,6 +13,7 @@ npm install
 
 | Command                         | Action                                              |
 | :------------------------------ | :-------------------------------------------------- |
-| `npm run dev`                   | Start local dev server at `http://localhost:4000`   |
-| `bundle exec bridgetown deploy` | Build production site to `./output/`                |
-| `bin/bridgetown ...`            | Run other Bridgetown CLI commands                   |
+| `bin/bridgetown start`          | ローカル開発サーバを `http://localhost:4000` で起動 |
+| `bin/bridgetown deploy`         | 本番ビルド（Cloudflare Pages と同じコマンド）       |
+| `hk check --all`                | 全リンター（Ruby/CSS/HTML/JS）を実行                |
+| `hk fix --all`                  | リンターの自動修正                                  |
