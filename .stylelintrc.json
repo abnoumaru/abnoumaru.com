@@ -1,0 +1,5 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "ignoreFiles": ["frontend/styles/syntax-highlighting.css"],
+  "rules": {}
+}

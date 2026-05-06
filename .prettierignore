@@ -1,0 +1,12 @@
+output
+dist
+.bridgetown-cache
+.astro
+vendor
+node_modules
+package-lock.json
+frontend/styles
+src/**/*.css
+src/_posts
+*.md
+src/**/*.md
