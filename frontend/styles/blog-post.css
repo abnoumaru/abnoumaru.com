@@ -73,3 +73,18 @@ body.post .share-button:hover {
   color: #111;
   border: none;
 }
+
+/* Wrap long lines in <pre> inside <details> (e.g., voice-input transcripts). */
+body.post details {
+  margin: 1em 0;
+}
+
+body.post details summary {
+  cursor: pointer;
+}
+
+body.post details pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
