@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "bridgetown-core/rack/logger"
 
 # NOTE: Bridgetown's boot & config loader overrides this port; changing it here has no effect.
 port(ENV.fetch("BRIDGETOWN_PORT", 4000))
@@ -9,11 +10,9 @@ max_threads_count = ENV.fetch("BRIDGETOWN_MAX_THREADS", 5)
 min_threads_count = ENV.fetch("BRIDGETOWN_MIN_THREADS") { max_threads_count }
 threads(min_threads_count, max_threads_count)
 
-pidfile(ENV["PIDFILE"] || "tmp/pids/server.pid")
+pidfile(ENV.fetch("PIDFILE", "tmp/pids/server.pid"))
 
 preload_app!
-
-require "bridgetown-core/rack/logger"
 
 log_formatter do |msg|
   Bridgetown::Rack::Logger.message_with_prefix(msg)
