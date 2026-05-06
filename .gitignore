@@ -5,10 +5,6 @@ output
 .routes.json
 vendor/
 
-# Astro (kept until Step 10 removes Astro from this branch)
-dist/
-.astro/
-
 # Dependency folders
 node_modules
 
