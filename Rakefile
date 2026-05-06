@@ -3,7 +3,6 @@ require "bridgetown"
 
 Bridgetown.load_tasks
 
-# Run rake without specifying any command to execute a deploy build by default.
 task default: :deploy
 
 desc "Build the Bridgetown site for deployment"
