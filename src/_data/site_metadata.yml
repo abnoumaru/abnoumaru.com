@@ -2,7 +2,6 @@
 # Accessed in templates via `site.metadata.<key>` (e.g. `site.metadata.title`).
 
 title: abnoumaru.com
-tagline: ""
 description: abnoumaruのウェブサイト。日常系。
 url: https://abnoumaru.com
 author: abnoumaru
