@@ -1,0 +1,22 @@
+plugins:
+  - rubocop-rubyfmt
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "output/**/*"
+    - "dist/**/*"
+    - ".bridgetown-cache/**/*"
+    - ".astro/**/*"
+    - "vendor/**/*"
+    - "node_modules/**/*"
+    - "tmp/**/*"
+
+# Bridgetown plugins/builders are small classes; RDoc comments are noise.
+Style/Documentation:
+  Enabled: false
+
+# Rakefile uses `rescue Interrupt` to swallow Ctrl+C cleanly.
+Lint/SuppressedException:
+  Exclude:
+    - "Rakefile"

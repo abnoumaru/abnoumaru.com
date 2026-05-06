@@ -1,0 +1,64 @@
+amends "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Builtins.pkl"
+
+exclude = List(
+  "output/**",
+  "dist/**",
+  ".bridgetown-cache/**",
+  ".astro/**",
+  "vendor/**",
+  "node_modules/**",
+  "package-lock.json",
+)
+
+local linters = new Mapping<String, Step> {
+  ["rubyfmt"] {
+    glob = List("**/*.rb")
+    fix = "rubyfmt -i {{files}}"
+  }
+  ["rubocop"] {
+    glob = List("**/*.rb", "Gemfile", "Rakefile", "*.gemspec")
+    depends = List("rubyfmt")
+    check = "bundle exec rubocop --force-exclusion {{files}}"
+    fix = "bundle exec rubocop --force-exclusion -A {{files}}"
+  }
+  ["erb_lint"] {
+    glob = List("**/*.erb")
+    check = "bundle exec erb_lint {{files}}"
+    fix = "bundle exec erb_lint -a {{files}}"
+  }
+  ["stylelint"] {
+    glob = List("**/*.css")
+    check = "npx stylelint {{files}}"
+    fix = "npx stylelint --fix {{files}}"
+  }
+  ["prettier"] {
+    glob = List(
+      "**/*.html",
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.cjs",
+      "**/*.json",
+      "**/*.yml",
+      "**/*.yaml",
+    )
+    check = "npx prettier --check {{files}}"
+    fix = "npx prettier --write {{files}}"
+  }
+}
+
+hooks {
+  ["check"] {
+    steps = linters
+  }
+  ["fix"] {
+    fix = true
+    steps = linters
+  }
+  ["pre-commit"] {
+    fix = true
+    stash = "git"
+    stage = true
+    steps = linters
+  }
+}

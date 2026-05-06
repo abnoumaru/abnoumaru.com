@@ -11,7 +11,9 @@
     "start": "bin/bridgetown start",
     "build": "bin/bridgetown deploy",
     "esbuild": "node esbuild.config.js --minify",
-    "esbuild-dev": "node esbuild.config.js --watch"
+    "esbuild-dev": "node esbuild.config.js --watch",
+    "lint": "hk check --all",
+    "lint:fix": "hk fix --all"
   },
   "devDependencies": {
     "esbuild": "^0.25.11",
@@ -21,7 +23,10 @@
     "postcss-import": "^16.1.0",
     "postcss-load-config": "^6.0.1",
     "postcss-preset-env": "^10.4.0",
+    "prettier": "^3.0.0",
     "read-cache": "^1.0.0",
-    "simple-icons": "^16.18.0"
+    "simple-icons": "^16.18.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
   }
 }

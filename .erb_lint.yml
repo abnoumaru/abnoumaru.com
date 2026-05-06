@@ -1,0 +1,20 @@
+---
+glob: "src/**/*.{html,html.erb,erb}"
+linters:
+  ErbSafety:
+    enabled: true
+  Rubocop:
+    enabled: false
+  ParserErrors:
+    enabled: true
+  FinalNewline:
+    enabled: true
+  TrailingWhitespace:
+    enabled: true
+  SpaceInHtmlTag:
+    enabled: true
+  AllowedScriptType:
+    enabled: true
+    allowed_types:
+      - text/javascript
+      - application/ld+json
