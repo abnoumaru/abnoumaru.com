@@ -3,13 +3,13 @@
   <head>
     <%= render "head", page_data: data %>
   </head>
-  <body class="<%= data.layout %> <%= data.page_class %>">
-    <%= render "header", metadata: site.metadata, resource: resource %>
+  <body class="<%= data.layout %>">
+    <%= render "header", resource: resource %>
 
     <main>
       <%= yield %>
     </main>
 
-    <%= render "footer", metadata: site.metadata %>
+    <%= render "footer" %>
   </body>
 </html>
