@@ -21,16 +21,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["(^|/)\\.nvmrc$", "(^|/)\\.node-version$"],
+      "fileMatch": ["(^|/)\\.node-version$"],
       "matchStrings": ["^(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"],
-      "depNameTemplate": "node",
-      "datasourceTemplate": "node-version",
-      "versioningTemplate": "node"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["(^|/)\\.mise\\.toml$"],
-      "matchStrings": ["node\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version",
       "versioningTemplate": "node"
