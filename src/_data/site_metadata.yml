@@ -15,11 +15,6 @@ social:
     handle: abnoumaru
     url: https://github.com/abnoumaru
 
-analytics:
-  google_analytics:
-    id: G-1FX49E22DX
-    enabled: true
-
 share_buttons:
   - name: hatena
     base_url: https://b.hatena.ne.jp/entry/
