@@ -61,7 +61,7 @@ header h2 a {
     color: #555; /* Match new hover style */
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     nav {
         padding: 0 1.5rem; /* Match main content padding */
         position: relative;
@@ -102,7 +102,7 @@ header h2 a {
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     nav {
         padding: 0 1rem; /* Match main content padding */
     }

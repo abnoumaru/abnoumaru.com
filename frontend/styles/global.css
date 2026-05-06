@@ -31,6 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 2.25rem;
+
     /* Removed border-bottom for a flatter look */
 	padding-bottom: 0.5rem;
 }
@@ -58,13 +59,14 @@ a:hover {
 }
 
 img {
+	width: 100%;
 	max-width: 100%;
 	height: auto;
 	border-radius: 0;
 }
 
 /* --- Responsive Design --- */
-@media (max-width: 768px) {
+@media (width <= 768px) {
 	main {
 		padding: 2rem 1.5rem;
 	}
@@ -82,7 +84,7 @@ img {
 	}
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
 	body {
 		font-size: 15px; /* Slightly larger for mobile readability */
         line-height: 1.6;
@@ -101,12 +103,6 @@ img {
 		font-size: 1.375rem;
 		margin-top: 1.5rem;
 	}
-}
-
-/* Images should always be responsive */
-img {
-    width: 100%;
-    height: auto;
 }
 
 /* --- Date display --- */
