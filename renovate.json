@@ -14,8 +14,16 @@
       "groupName": "weekly npm dependencies"
     },
     {
+      "matchDatasources": ["rubygems"],
+      "groupName": "weekly ruby gems"
+    },
+    {
       "matchDepNames": ["node"],
       "groupName": "weekly node runtime"
+    },
+    {
+      "matchDepNames": ["ruby"],
+      "groupName": "weekly ruby runtime"
     }
   ],
   "customManagers": [
@@ -26,6 +34,14 @@
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version",
       "versioningTemplate": "node"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)\\.ruby-version$"],
+      "matchStrings": ["^(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"],
+      "depNameTemplate": "ruby",
+      "datasourceTemplate": "ruby-version",
+      "versioningTemplate": "ruby"
     }
   ]
 }
