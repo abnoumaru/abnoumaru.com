@@ -4,7 +4,7 @@ title: home
 permalink: /
 ---
 
-<ul class="recent-posts">
+<ul class="post-list">
 <% collections.posts.resources.sort_by { |p| p.data.date }.reverse.first(5).each do |post| %>
   <li>
     <span class="post-date">
