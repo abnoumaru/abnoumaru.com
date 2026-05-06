@@ -2,7 +2,6 @@ plugins:
   - rubocop-rubyfmt
 
 AllCops:
-  NewCops: enable
   Exclude:
     - "output/**/*"
     - ".bridgetown-cache/**/*"
