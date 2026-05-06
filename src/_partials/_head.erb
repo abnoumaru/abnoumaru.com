@@ -71,17 +71,6 @@
 
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed">
 
-<% if site.metadata.analytics&.dig(:google_analytics, :enabled) %>
-  <% ga_id = site.metadata.analytics.google_analytics.id %>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ga_id %>"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', <%= ga_id.to_json %>);
-  </script>
-<% end %>
-
 <link rel="stylesheet" href="<%= asset_path :css %>">
 <script src="<%= asset_path :js %>" defer></script>
 <%= live_reload_dev_js %>
