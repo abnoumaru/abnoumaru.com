@@ -9,3 +9,9 @@ gem "puma", "< 8"
 # Bridgetown plugins
 gem "bridgetown-feed", "~> 4.0"
 gem "bridgetown-sitemap", "~> 3.0"
+
+group :development do
+  gem "erb_lint", require: false
+  gem "rubocop", require: false
+  gem "rubocop-rubyfmt", require: false
+end
