@@ -1,4 +1,4 @@
-import build from "./config/esbuild.defaults.js"
+import build from "./config/esbuild.defaults.js";
 
 /**
  * @typedef { import("esbuild").BuildOptions } BuildOptions
@@ -7,8 +7,8 @@ import build from "./config/esbuild.defaults.js"
 const esbuildOptions = {
   plugins: [],
   globOptions: {
-    excludeFilter: /\.(dsd|lit)\.css$/
-  }
-}
+    excludeFilter: /\.(dsd|lit)\.css$/,
+  },
+};
 
-build(esbuildOptions)
+build(esbuildOptions);

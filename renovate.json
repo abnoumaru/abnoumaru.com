@@ -1,55 +1,36 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "timezone": "Asia/Tokyo",
-  "schedule": [
-    "* 6-11 * * 0"
-  ],
+  "schedule": ["* 6-11 * * 0"],
   "rangeStrategy": "bump",
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": [
-      "* 6-11 * * 0"
-    ]
+    "schedule": ["* 6-11 * * 0"]
   },
   "packageRules": [
     {
-      "matchDatasources": [
-        "npm"
-      ],
+      "matchDatasources": ["npm"],
       "groupName": "weekly npm dependencies"
     },
     {
-      "matchDepNames": [
-        "node"
-      ],
+      "matchDepNames": ["node"],
       "groupName": "weekly node runtime"
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "(^|/)\\.nvmrc$",
-        "(^|/)\\.node-version$"
-      ],
-      "matchStrings": [
-        "^(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
-      ],
+      "fileMatch": ["(^|/)\\.nvmrc$", "(^|/)\\.node-version$"],
+      "matchStrings": ["^(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version",
       "versioningTemplate": "node"
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "(^|/)\\.mise\\.toml$"
-      ],
-      "matchStrings": [
-        "node\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""
-      ],
+      "fileMatch": ["(^|/)\\.mise\\.toml$"],
+      "matchStrings": ["node\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version",
       "versioningTemplate": "node"

@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-        "$styles/*": ["./frontend/styles/*"],
-        "$javascript/*": ["./frontend/javascript/*"]
+      "$styles/*": ["./frontend/styles/*"],
+      "$javascript/*": ["./frontend/javascript/*"]
     }
-  },
+  }
 }
