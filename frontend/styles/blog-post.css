@@ -43,6 +43,37 @@ body.post .date {
   margin-bottom: 0.5em;
 }
 
+body.post .post-neighbors {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  line-height: 1.4;
+}
+
+body.post .post-neighbors .neighbor {
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+
+body.post .post-neighbors a:hover {
+  text-decoration: underline;
+}
+
+body.post .post-neighbors .neighbor-prev {
+  text-align: right;
+}
+
+body.post .post-neighbors .neighbor-next {
+  text-align: left;
+}
+
+body.post .post-neighbors .separator {
+  color: #666;
+}
+
 @media (width <= 720px) {
   body.post .prose {
     width: 100%;
