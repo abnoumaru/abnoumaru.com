@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Builders
-  class GitMetadata < Bridgetown::Builder
+  class GitMetadata < SiteBuilder
     def build
       hook(:site, :pre_render) do |site|
         commit_hash = `git rev-parse --short HEAD 2>/dev/null`.strip
