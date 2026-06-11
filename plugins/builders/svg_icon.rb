@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Builders
-  class SvgIcon < Bridgetown::Builder
+  class SvgIcon < SiteBuilder
     def build
       icons_dir = File.join(site.root_dir, "node_modules", "simple-icons", "icons")
 
