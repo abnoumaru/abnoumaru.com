@@ -1,0 +1,26 @@
+.supplements-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.supplements-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.supplements-table th,
+.supplements-table td {
+  padding: 0.6rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.supplements-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.supplements-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
