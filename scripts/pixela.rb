@@ -6,6 +6,16 @@ module Pixela
   BASE = 'https://pixe.la/v1/users'
 
   class << self
+    def update_graph(username:, token:, graph_id:, **params)
+      uri = URI("#{BASE}/#{username}/graphs/#{graph_id}")
+      headers = { 'X-USER-TOKEN' => token, 'Content-Type' => 'application/json' }
+      res = http_request(Net::HTTP::Put, uri, headers, JSON.generate(params))
+      result = JSON.parse(res.body)
+      raise "Pixela update_graph failed: #{result['message']}" unless result['isSuccess']
+    rescue JSON::ParserError => e
+      raise "Pixela API returned non-JSON response: #{e.message}"
+    end
+
     def upsert(username:, token:, graph_id:, date:, quantity:)
       date_str = date.delete('-')
       headers = { 'X-USER-TOKEN' => token, 'Content-Type' => 'application/json' }
