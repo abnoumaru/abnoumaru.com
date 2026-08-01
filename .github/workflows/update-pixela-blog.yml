@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - uses: ruby/setup-ruby@d45b1a4e94b71acab930e56e79c6aa188764e7f9 # v1.316.0
         with:
@@ -22,6 +22,11 @@ jobs:
           PIXELA_USERNAME: ${{ secrets.PIXELA_USERNAME }}
           PIXELA_USER_TOKEN: ${{ secrets.PIXELA_USER_TOKEN }}
         run: |
-          git diff --name-only --diff-filter=AM HEAD~1 HEAD \
+          BEFORE="${{ github.event.before }}"
+          # Handle first push to branch (before is all-zeros)
+          if ! git cat-file -e "$BEFORE" 2>/dev/null; then
+            BEFORE="4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+          fi
+          git diff --name-only --diff-filter=AM "$BEFORE" "${{ github.sha }}" \
             | grep -E '^src/_posts/.*\.md$' \
             | ruby scripts/update_blog_graph.rb

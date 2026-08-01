@@ -13,13 +13,16 @@ module Pixela
       # Try PUT first (update existing pixel)
       put_uri = URI("#{BASE}/#{username}/graphs/#{graph_id}/#{date_str}")
       res = http_request(Net::HTTP::Put, put_uri, headers, JSON.generate({ quantity: quantity.to_s }))
-      return if JSON.parse(res.body)['isSuccess']
+      result = JSON.parse(res.body)
+      return if result['isSuccess']
 
       # Pixel not found — create with POST
       post_uri = URI("#{BASE}/#{username}/graphs/#{graph_id}")
       res = http_request(Net::HTTP::Post, post_uri, headers, JSON.generate({ date: date_str, quantity: quantity.to_s }))
       result = JSON.parse(res.body)
       raise "Pixela POST failed: #{result['message']}" unless result['isSuccess']
+    rescue JSON::ParserError => e
+      raise "Pixela API returned non-JSON response: #{e.message}"
     end
 
     private
