@@ -1,20 +1,20 @@
-- label: GitHub
-  url: https://github.com/abnoumaru
-- label: Speaker Deck
-  url: https://speakerdeck.com/abnoumaru
-- label: X
-  url: https://x.com/abnoumaru
-- label: Last.fm
-  url: https://www.last.fm/ja/user/abnoumaru
-- label: Annict
-  url: https://annict.com/@abnoumaru/watched
-- label: Keybase
-  url: https://keybase.io/abnoumaru
-- label: Wishlist
+- label: amazon.jp/wishlist
   url: https://www.amazon.jp/hz/wishlist/ls/3LOHR3BZHXF1H?ref_=wl_share
-- label: note
+- label: annict.com/@abnoumaru
+  url: https://annict.com/@abnoumaru
+- label: github.com/abnoumaru
+  url: https://github.com/abnoumaru
+- label: keybase.io/abnoumaru
+  url: https://keybase.io/abnoumaru
+- label: last.fm/user/abnoumaru
+  url: https://www.last.fm/user/abnoumaru
+- label: note.com/abnoumaru
   url: https://note.com/abnoumaru
-- label: Zenn
-  url: https://zenn.dev/abnoumaru
-- label: Scrapbox
+- label: scrapbox.io/abnoumaru
   url: https://scrapbox.io/abnoumaru/
+- label: speakerdeck.com/abnoumaru
+  url: https://speakerdeck.com/abnoumaru
+- label: x.com/abnoumaru
+  url: https://x.com/abnoumaru
+- label: zenn.dev/abnoumaru
+  url: https://zenn.dev/abnoumaru
