@@ -2,7 +2,6 @@ require_relative 'pixela'
 require 'net/http'
 require 'uri'
 require 'rexml/document'
-require 'date'
 require 'time'
 
 username = ENV.fetch('PIXELA_USERNAME')
