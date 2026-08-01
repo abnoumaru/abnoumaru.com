@@ -1,0 +1,22 @@
+.activity-graphs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 0 2rem;
+}
+
+.activity-graphs figure {
+  margin: 0;
+  overflow-x: auto;
+}
+
+.activity-graphs figcaption {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.activity-graphs img {
+  display: block;
+  height: auto;
+}

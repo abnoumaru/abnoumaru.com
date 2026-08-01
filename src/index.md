@@ -4,15 +4,13 @@ title: home
 permalink: /
 ---
 
-<ul class="post-list">
-<% collections.posts.resources.sort_by { |p| p.data.date }.reverse.first(5).each do |post| %>
-  <li>
-    <span class="post-date">
-      <%= render "format_date", date: post.data.date %>
-    </span>
-    <a href="<%= post.relative_url %>"><%= post.data.title %></a>
-  </li>
-<% end %>
-</ul>
-
-<p><a href="/blog/">すべての記事を見る →</a></p>
+<div class="activity-graphs">
+  <figure>
+    <figcaption>blog</figcaption>
+    <img src="https://pixe.la/v1/users/abnoumaru/graphs/blog" alt="blog activity">
+  </figure>
+  <figure>
+    <figcaption>外部発信</figcaption>
+    <img src="https://pixe.la/v1/users/abnoumaru/graphs/external" alt="external activity">
+  </figure>
+</div>
