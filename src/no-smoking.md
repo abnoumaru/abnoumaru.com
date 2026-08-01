@@ -1,7 +1,7 @@
 ---
 layout: default
 title: no-smoking
-permalink: /pages/no-smoking/
+permalink: /no-smoking/
 ---
 
 <h1>禁煙情報</h1>
