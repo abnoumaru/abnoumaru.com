@@ -1,0 +1,27 @@
+name: Update Pixela Blog Graph
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/_posts/**']
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          fetch-depth: 2
+
+      - uses: ruby/setup-ruby@d45b1a4e94b71acab930e56e79c6aa188764e7f9 # v1.316.0
+        with:
+          ruby-version: .ruby-version
+
+      - name: Update Pixela blog graph
+        env:
+          PIXELA_USERNAME: ${{ secrets.PIXELA_USERNAME }}
+          PIXELA_USER_TOKEN: ${{ secrets.PIXELA_USER_TOKEN }}
+        run: |
+          git diff --name-only --diff-filter=AM HEAD~1 HEAD \
+            | grep -E '^src/_posts/.*\.md$' \
+            | ruby scripts/update_blog_graph.rb
