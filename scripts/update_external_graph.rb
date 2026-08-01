@@ -14,8 +14,7 @@ RSS_URLS = [
   'https://note.com/abnoumaru/rss'
 ].freeze
 
-JST = '+09:00'
-today     = Date.today
+today     = Time.now.localtime('+09:00').to_date
 yesterday = today - 1
 targets   = [today.to_s, yesterday.to_s]
 
@@ -32,7 +31,7 @@ RSS_URLS.each do |url|
     raw = item.get_text('pubDate')&.value || item.get_text('published')&.value
     next unless raw
 
-    date = Time.parse(raw).localtime(JST).to_date.to_s
+    date = Time.parse(raw).localtime('+09:00').to_date.to_s
     counts[date] += 1 if targets.include?(date)
   end
 end
