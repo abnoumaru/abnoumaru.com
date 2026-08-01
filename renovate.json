@@ -2,11 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "timezone": "Asia/Tokyo",
-  "schedule": ["* 6-11 * * 0"],
+  "schedule": ["every weekend"],
+  "minimumReleaseAge": "7 days",
   "rangeStrategy": "bump",
   "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["* 6-11 * * 0"]
+    "enabled": true
   },
   "packageRules": [
     {
