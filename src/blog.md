@@ -4,7 +4,6 @@ title: blog
 permalink: /blog/
 ---
 
-<h2>ブログ</h2>
 <ul class="post-list">
 <% collections.posts.resources.sort_by { |p| p.data.date }.reverse.each do |post| %>
   <li>
