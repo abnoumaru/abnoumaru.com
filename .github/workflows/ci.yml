@@ -1,6 +1,7 @@
-name: Deploy
+name: CI
+
 on:
-  push:
+  pull_request:
     branches: [main]
 
 env:
@@ -8,7 +9,7 @@ env:
   BUNDLE_WITHOUT: development:test
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,9 +31,3 @@ jobs:
       - run: npm ci
 
       - run: bin/bridgetown deploy
-
-      - uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy output --project-name=abnoumaru-com
