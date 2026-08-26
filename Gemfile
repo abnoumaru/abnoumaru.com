@@ -4,9 +4,9 @@ source "https://rubygems.org"
 git_source(:github) { "https://github.com/#{it}.git" }
 git_source(:codeberg) { "https://codeberg.org/#{it}.git" }
 
-gem "bridgetown", "~> 2.2"
+gem "bridgetown", "~> 2.2", ">= 2.2.2"
 gem "bridgetown-feed", "~> 4.0"
-gem "bridgetown-sitemap", "~> 3.0"
+gem "bridgetown-sitemap", "~> 3.0", ">= 3.0.3"
 
 group :development do
   gem "erb_lint", require: false
