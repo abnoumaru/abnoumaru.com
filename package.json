@@ -15,8 +15,8 @@
     "postcss-load-config": "^6.0.1",
     "postcss-preset-env": "^10.6.1",
     "prettier": "^3.9.6",
-    "read-cache": "^1.0.0",
-    "simple-icons": "^16.28.0",
+    "read-cache": "^1.0.2",
+    "simple-icons": "^16.29.0",
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^36.0.1"
   }
