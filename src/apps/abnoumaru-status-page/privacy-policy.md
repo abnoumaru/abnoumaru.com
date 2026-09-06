@@ -4,7 +4,9 @@ title: privacy policy - abnoumaru-status-page
 permalink: /apps/abnoumaru-status-page/privacy-policy/
 ---
 
-<h1>プライバシーポリシー</h1>
+<h1>abnoumaru-status-page プライバシーポリシー</h1>
+<p class="scope-note">本ページは、Oura 連携アプリ <strong>abnoumaru-status-page</strong> に関するポリシーです。abnoumaru.com(本サイト)全体のポリシーではありません。</p>
+
 <p>abnoumaru-status-page(以下「本アプリ」)は、abnoumaru が個人的に運用するアプリケーションです。利用者は運営者本人のみで、第三者には提供していません。</p>
 
 <h2>取得するデータ</h2>
