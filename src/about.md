@@ -9,11 +9,10 @@ permalink: /about/
 
 <h3>アイコン</h3>
 <div class="icon-gallery">
-  <img src="/icon/abnoumaru.jpg" alt="仕事などでも使えるアイコン、SHIROBAKOのアリアが歯磨きしているシーンを意識した絵" />
-  <img src="/icon/abnoumaru-public.jpg" alt="これはかなりプライベートなアカウントだよを伝えたいときのアイコン" />
-  <img src="/icon/abnoumaru-photo-of-the-author.webp" alt="2025年11月にキャッチボールをしてる著者" />
-  <img src="/icon/abnoumaru-omoide.webp" alt="前々職の旅行で行った好きな写真" />
   <img src="/icon/abnoumaru-zense.png" alt="前世" />
+  <img src="/icon/abnoumaru-omoide.webp" alt="前々職の旅行で行った好きな写真" />
+  <img src="/icon/abnoumaru.jpg" alt="仕事などでも使えるアイコン、SHIROBAKOのアリアが歯磨きしているシーンを意識した絵" />
+  <img src="/icon/abnoumaru-photo-of-the-author.webp" alt="2025年11月にキャッチボールをしてる著者" />
 </div>
 
 <h3>経歴</h3>
