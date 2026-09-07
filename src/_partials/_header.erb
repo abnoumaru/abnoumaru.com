@@ -7,6 +7,7 @@
         nav_links = [
           { label: "home", href: "/" },
           { label: "blog", href: "/blog/" },
+          { label: "status", href: "https://abnoumaru.openstatus.dev/", external: true },
           { label: "about", href: "/about/" },
           { label: "links", href: "/links/" },
         ]
@@ -19,7 +20,7 @@
                         current_path.start_with?(link[:href])
                       end
         %>
-        <a href="<%= link[:href] %>" class="<%= "active" if is_active %>"><%= link[:label] %></a>
+        <a href="<%= link[:href] %>" class="<%= "active" if is_active %>"<% if link[:external] %> target="_blank" rel="noopener"<% end %>><%= link[:label] %></a>
       <% end %>
     </div>
     <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">&#x2630;</button>
