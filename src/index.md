@@ -4,6 +4,11 @@ title: home
 permalink: /
 ---
 
+<div class="lastfm-recent-track" id="lastfm-recent-track" hidden>
+  <span class="lastfm-recent-track__label"></span>
+  <a class="lastfm-recent-track__link" target="_blank" rel="noopener noreferrer"></a>
+</div>
+
 <div class="activity-graphs">
   <figure>
     <figcaption>blog</figcaption>
