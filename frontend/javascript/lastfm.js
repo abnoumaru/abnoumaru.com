@@ -8,7 +8,7 @@ if (el) {
 
       el.querySelector(".lastfm-recent-track__label").textContent = track.nowPlaying
         ? "Now playing"
-        : "Last played";
+        : "♫";
 
       const link = el.querySelector(".lastfm-recent-track__link");
       link.href = track.url;
