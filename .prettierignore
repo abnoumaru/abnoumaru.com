@@ -3,6 +3,9 @@ output
 vendor
 node_modules
 package-lock.json
+
+# Bridgetown が管理し `bridgetown esbuild update` で上書きされるため整形しない
+config/esbuild.defaults.js
 frontend/styles
 src/**/*.css
 src/_posts
