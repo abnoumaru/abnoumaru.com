@@ -1,13 +1,14 @@
-require_relative 'pixela'
+# frozen_string_literal: true
+require_relative "pixela"
 
-username = ENV.fetch('PIXELA_USERNAME')
-token    = ENV.fetch('PIXELA_USER_TOKEN')
+username = ENV.fetch("PIXELA_USERNAME")
+token = ENV.fetch("PIXELA_USER_TOKEN")
 
 changed_files = $stdin.read.split("\n").map(&:strip).reject(&:empty?)
 
 if changed_files.empty?
-  puts 'No post files changed, skipping.'
-  exit 0
+  puts("No post files changed, skipping.")
+  exit(0)
 end
 
 counts = Hash.new(0)
@@ -18,6 +19,6 @@ changed_files.each do |path|
 end
 
 counts.each do |date, count|
-  puts "Updating blog/#{date}: #{count}"
-  Pixela.upsert(username: username, token: token, graph_id: 'blog', date: date, quantity: count)
+  puts("Updating blog/#{date}: #{count}")
+  Pixela.upsert(username: username, token: token, graph_id: "blog", date: date, quantity: count)
 end
