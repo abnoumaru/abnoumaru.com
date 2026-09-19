@@ -2,7 +2,7 @@ name: Update Pixela External Graph
 
 on:
   schedule:
-    - cron: '0 21 * * *'  # 毎日 06:00 JST
+    - cron: "0 21 * * *" # 毎日 06:00 JST
 
 jobs:
   update:

@@ -3,7 +3,7 @@ name: Update Pixela Blog Graph
 on:
   push:
     branches: [main]
-    paths: ['src/_posts/**']
+    paths: ["src/_posts/**"]
 
 jobs:
   update:
