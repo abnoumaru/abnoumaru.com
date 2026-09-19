@@ -5,13 +5,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 - `bin/bridgetown start` — ローカル開発サーバを `http://localhost:4000` で起動
-- `bin/bridgetown deploy` — 本番ビルド（Rakefile が `clean` → esbuild → Bridgetown build を実行。Cloudflare Pages もこのコマンド）
+- `bin/bridgetown deploy` — 本番ビルド（Rakefile が `clean` → esbuild → Bridgetown build を実行。GitHub Actions もこのコマンド）
 - `hk check --all` — Ruby/CSS/HTML/JS のリンターをまとめて実行
 - `hk fix --all` — リンターの自動修正
 
 ## Architecture Overview
 
-Bridgetown 2.x で構築している個人ブログ。Cloudflare Pages にデプロイされる。
+Bridgetown 2.x で構築している個人ブログ。GitHub Actions から `wrangler pages deploy` で Cloudflare Pages にデプロイされる。
 
 ### Content
 
