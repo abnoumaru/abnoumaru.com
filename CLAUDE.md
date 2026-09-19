@@ -44,8 +44,10 @@ Bridgetown 2.x で構築している個人ブログ。GitHub Actions から `wra
 ### Integrations
 
 - RSS: `bridgetown-feed`（`/rss.xml` で配信）
-- Sitemap: `bridgetown-sitemap`
 - Analytics: Cloudflare Web Analytics
+
+トップページ以外は検索結果に出さない方針。`src/robots.txt` の `Disallow: /` と
+`_head.erb` の `noindex` は意図的なもので、sitemap を置かないのもこの方針のため。
 
 ## Toolchain
 

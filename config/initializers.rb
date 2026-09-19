@@ -12,7 +12,6 @@ Bridgetown.configure do |_config|
   timezone("Asia/Tokyo")
 
   init(:"bridgetown-feed")
-  init(:"bridgetown-sitemap")
 
   # Astro サイト時代の購読者が引き続き使える URL を維持するために `/rss.xml` を指定。
   feed do
