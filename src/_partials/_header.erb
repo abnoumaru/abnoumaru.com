@@ -19,7 +19,7 @@
                         current_path.start_with?(link[:href])
                       end
         %>
-        <a href="<%= link[:href] %>" class="<%= "active" if is_active %>"<% if link[:external] %> target="_blank" rel="noopener"<% end %>><%= link[:label] %></a>
+        <a href="<%= link[:href] %>" class="<%= "active" if is_active %>"><%= link[:label] %></a>
       <% end %>
     </div>
     <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">&#x2630;</button>
