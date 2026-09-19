@@ -6,7 +6,6 @@ git_source(:codeberg) { "https://codeberg.org/#{it}.git" }
 
 gem "bridgetown", "~> 2.2", ">= 2.2.2"
 gem "bridgetown-feed", "~> 4.0"
-gem "bridgetown-sitemap", "~> 3.0", ">= 3.0.3"
 gem "falcon", "~> 0.57"
 
 group :development do
