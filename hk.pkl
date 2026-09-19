@@ -12,7 +12,7 @@ exclude = List(
 local linters = new Mapping<String, Step> {
   ["pinact"] {
     glob = List(".github/**/*.yml", ".github/**/*.yaml")
-    check = "pinact check {{files}}"
+    check = "pinact run --check {{files}}"
     fix = "pinact run {{files}}"
   }
   ["rubyfmt"] {
