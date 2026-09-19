@@ -30,7 +30,7 @@
    hk fix --all
    ```
 
-6. push（Cloudflare Pages が自動ビルド。`main` は本番公開、それ以外はプレビュー）
+6. push（`main` への push で GitHub Actions がビルドし、`wrangler pages deploy` で本番公開）
 
    ```sh
    git push
@@ -38,6 +38,6 @@
 
 ## ビルド
 
-- `bin/bridgetown deploy` — Cloudflare Pages が使う本番ビルド（`clean` → esbuild → Bridgetown build）。
+- `bin/bridgetown deploy` — GitHub Actions が使う本番ビルド（`clean` → esbuild → Bridgetown build）。
 - `bin/bridgetown test` — `BRIDGETOWN_ENV=test` でビルド。
 - `bin/bridgetown clean` — `output/` を削除。
