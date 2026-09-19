@@ -6,11 +6,11 @@ if (el) {
     .then((track) => {
       if (!track) return;
 
-      el.querySelector(".lastfm-recent-track__label").textContent = track.nowPlaying
+      el.querySelector(".lastfm-recent-track-label").textContent = track.nowPlaying
         ? "Now playing"
         : "♫";
 
-      const link = el.querySelector(".lastfm-recent-track__link");
+      const link = el.querySelector(".lastfm-recent-track-link");
       link.href = track.url;
       link.textContent = `${track.artist} - ${track.track}`;
 

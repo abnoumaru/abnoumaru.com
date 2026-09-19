@@ -7,10 +7,10 @@
   margin: 0 0 1rem;
 }
 
-.lastfm-recent-track__label {
+.lastfm-recent-track-label {
   font-weight: 600;
 }
 
-.lastfm-recent-track__link {
+.lastfm-recent-track-link {
   color: inherit;
 }
