@@ -55,7 +55,7 @@ layout: default
                 when "x" then "#{button.base_url}?url=#{encoded_url}&text=#{encoded_title}"
                 end
         %>
-        <a href="<%= url %>" target="_blank" rel="noopener" aria-label="<%= button.aria_label %>" class="share-button <%= button.name %>-button">
+        <a href="<%= url %>" target="_blank" rel="noopener" aria-label="<%= button.aria_label %>" class="share-button">
           <%= svg_icon(button.icon) %>
         </a>
       <% end %>
