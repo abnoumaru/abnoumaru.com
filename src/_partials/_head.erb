@@ -62,8 +62,10 @@
     "description": <%= raw site.metadata.description.to_json %>,
     "author": {
       "@type": "Person",
-      "name": <%= raw site.metadata.author.to_json %>,
-      "url": <%= raw site.metadata.url.to_json %>
+      "name": <%= raw site.metadata.person.name.to_json %>,
+      "alternateName": <%= raw site.metadata.person.alternate_names.to_json %>,
+      "url": <%= raw site.metadata.url.to_json %>,
+      "sameAs": <%= raw site.data.links.select(&:same_as).map(&:url).to_json %>
     }
   }
   </script>

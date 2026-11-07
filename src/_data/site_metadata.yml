@@ -5,6 +5,12 @@ title: abnoumaru.com
 description: abnoumaruのウェブサイト。日常系。
 url: https://abnoumaru.com
 author: abnoumaru
+person:
+  name: 阿部 貴晶
+  alternate_names:
+    - abnoumaru
+    - Takaaki Abe
+    - あべ たかあき
 
 social:
   twitter:
