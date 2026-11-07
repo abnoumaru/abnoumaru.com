@@ -4,23 +4,34 @@
   url: https://annict.com/@abnoumaru
 - label: bsky.app/profile/abnoumaru.bsky.social
   url: https://bsky.app/profile/abnoumaru.bsky.social
+  same_as: true
 - label: do-gu.niwa.dev/@abnoumaru
   url: https://do-gu.niwa.dev/@abnoumaru
 - label: github.com/abnoumaru
   url: https://github.com/abnoumaru
+  same_as: true
 - label: keybase.io/abnoumaru
   url: https://keybase.io/abnoumaru
+  same_as: true
 - label: last.fm/user/abnoumaru
   url: https://www.last.fm/user/abnoumaru
 - label: linkedin.com/in/abnoumaru
   url: https://www.linkedin.com/in/abnoumaru/
+  same_as: true
 - label: note.com/abnoumaru
   url: https://note.com/abnoumaru
+  same_as: true
 - label: scrapbox.io/abnoumaru
   url: https://scrapbox.io/abnoumaru/
 - label: speakerdeck.com/abnoumaru
   url: https://speakerdeck.com/abnoumaru
+  same_as: true
 - label: x.com/abnoumaru
   url: https://x.com/abnoumaru
+  same_as: true
+- label: youtrust.jp/users/abnoumaru
+  url: https://youtrust.jp/users/abnoumaru
+  same_as: true
 - label: zenn.dev/abnoumaru
   url: https://zenn.dev/abnoumaru
+  same_as: true
